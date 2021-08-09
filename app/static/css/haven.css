@@ -1,0 +1,235 @@
+:root{
+   
+    --grey:#b3adb1;
+    
+}
+
+body {
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    margin: 0;
+}
+.green{
+    color: #3A8A34;
+}
+.blue{
+    color: #5447c8;
+}
+
+.orange{
+    color: #fda32e;
+}
+
+
+#page-container{
+	position: absolute;
+	min-height: 100vh;
+}
+
+.content-wrap{
+	padding-bottom: 2.5rem;
+	background-size: cover;
+}
+.footer{
+	position: fixed;
+	bottom: 0; left: 0; right: 0;
+	width:100%;
+	height: 60px;
+	background-color:#660066; 
+    overflow: none;
+    color: white;
+    font-family: sans-serif;
+}
+.footer nav ul{
+	float: right;
+	display: flex;
+	list-style: none;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+.footer nav ul a:hover{
+background: #E6AE55;
+color: #090101;
+}
+.footer nav ul a{
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-decoration: none;
+
+}
+
+
+.emblem a:first-of-type{
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.emblem a:not(:first-child){
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+}
+
+.grid{
+    margin: 5px;
+    border: 3px solid;
+    border-radius: 10px;
+    display: grid;
+    grid-template-areas: "one one two"
+                         "one one two";
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 300px 300px;
+    margin-bottom: 50px;
+
+}
+
+.section1{
+    grid-area: one;
+    background-color: #f3f0f0;
+    padding: 2px;
+    justify-items: center;
+}
+
+.section2{
+    grid-area: two;
+    background-color: #D8E8B1;
+}
+.section1{
+        overflow: hidden;
+  
+    padding-top: .5rem;
+}
+
+.records{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.records > div , .marks {
+    display: flex; 
+    align-content: center;  
+       font-family: 'Montserrat', sans-serif; 
+}
+
+
+.marks{
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    width: 175px;
+    height: 75px;
+      background-color: #D2CDCD;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    /*margin-right: .5rem;*/
+
+}
+.section1 h2,h4,h5{
+    margin:1rem;
+    font-size: 16px;
+
+}
+
+.marks h3 , p{
+    font-size: 14px;
+    position: relative;
+    margin-left: .7em;
+}
+
+.records h3{
+    text-align: center;
+}
+.records p{
+ text-align: center;
+}
+
+.test-tab{
+    display: flex;
+    grid-column: 1/4;
+    border: 1px solid var(--grey);
+    z-index: -2;
+    margin:   .5rem 1rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: .4rem 3rem;
+    width: 90%;
+    top: 10px;
+}
+
+.test-tab object {
+    width:25%;
+}
+
+.test-tab-list > p {
+    width: 40%;
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.test-tab-list div {
+ 
+ width: 100%;
+ height: 60px;
+
+}
+
+.test-tab-list div > h3 {
+ padding: 1rem;
+}
+
+.test-tab-mycourses a{
+    text-decoration: none;
+    color: #D37171;
+}
+
+.test-tab-mycourses a:hover{
+color: #4AE99C;    
+}
+
+.test-tab-mycourses {
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+.test-tab-mycourses :hover{
+    padding-top: 20px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.info{
+    grid-column:  4/6;  
+    justify-self: center;
+    text-align: center;
+    padding: .6rem 0 0 0;   
+    line-height: 1.5;
+ 
+}
+
+
+.profilepic{
+    width:80px;
+    height: 80px;
+    border-radius: 80px;
+    object-fit: cover;
+}
+
+.details{
+    text-align: center;
+    
+}
+
+.details button{
+    border-radius: 20px;
+    font-weight: bold;
+}
+.details button:hover{
+    cursor: pointer;
+
+}

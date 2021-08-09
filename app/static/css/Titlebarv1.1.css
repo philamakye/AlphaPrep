@@ -1,0 +1,214 @@
+body {
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    background-color: rgb(238, 234, 177);
+    margin: 0;
+}
+
+.logoName {
+    display: inline-flex;
+    margin-left: 40px;
+}
+
+nav h3 {
+    margin-block-start: 10px;
+    margin-inline-end: 0px;
+}
+
+nav img {
+    width: 35px;
+    height: 33px;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
+}
+
+nav {
+    height: 41px;
+    width: 100%;
+    background-color: #660066;
+    color: rgb(211, 194, 163);
+    position: static;
+}
+
+nav ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-flex;
+}
+
+nav a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #eee;
+    text-decoration: none;
+}
+
+nav li:not(:last-child):hover {
+    background-color: #812681;
+}
+
+nav a#openup {
+    display: none;
+}
+
+@media screen and (max-width: 880px) {
+    nav {
+        height: auto;
+        border-bottom: 0;
+    }
+    nav ul {
+        display: none;
+        height: auto;
+        float: none;
+    }
+    nav li {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+    nav a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+        background: #660066;
+        border-bottom: 1px solid rgb(121, 121, 121);
+    }
+    nav a:hover {
+        background: #250125;
+    }
+    nav a#openup:after {
+        display: none;
+        content: "|||";
+        transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 5px;
+        top: 20px;
+    }
+    nav a#openup {
+        display: inline-block;
+        background-color: #250125;
+        width: 100%;
+        position: relative;
+        display: -webkit-inline-flex;
+    }
+}
+
+.resp:after {
+    clear: both;
+}
+
+.resp:before,
+.resp:after {
+    content: " ";
+    display: table;
+}
+
+.resp {
+    zoom: 1;
+}
+
+.panel {
+    padding-bottom: 4px;
+    padding-right: 20px;
+}
+
+.panel h3 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: small;
+    padding: 0;
+    display: contents;
+}
+
+.panel a {
+    display: none;
+}
+
+.panel .fa {
+    color: white;
+}
+
+.panel .fa:hover {
+    color: greenyellow;
+}
+
+.panel .fas {
+    color: white;
+}
+
+.panel .fas:hover {
+    color: greenyellow;
+}
+
+.panel input[type="text"] {
+    font-family: sans-serif, arial;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+nav .about-tab {
+    top: 41px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+nav .about-tab a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav .about-tab a:hover {
+    color: white;
+    background: #812681;
+}
+
+nav .aabout:hover .about-tab {
+    display: block;
+    overflow: auto;
+}
+
+nav .subjects-tab {
+    top: 41px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+nav .subjects-tab a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav .subjects-tab a:hover {
+    color: white;
+    background: #812681;
+}
+
+nav .ssubjects:hover .subjects-tab {
+    display: block;
+    overflow: auto;
+}
+

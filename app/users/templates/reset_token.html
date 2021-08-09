@@ -1,0 +1,31 @@
+<!-- this piece of html code is for the registration page of the website -->
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+{% block body %}
+<center>
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }} <!-- this is for the hidden fields like password -->
+			
+				<div class="form-group">
+					{{ form.password.label(class="form-control-label") }}
+					{{ form.password(class="form-control-lg") }}
+				</div>
+				<div class="form-group">
+					{{ form.confirm_password.label(class="form-control-label") }}
+					{{ form.confirm_password(class="form-control-lg") }}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div></center>
+	<div class="border-top pt-3">
+	</div>
+{% endblock body %}

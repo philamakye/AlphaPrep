@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    min-height: 400px;
+    /*margin-bottom: 100px;*/
+    clear: both;
+
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vh;
+    height: 100vh;
+    background: #660066;
+    border-radius: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) scale(3);
+}
+section .content{
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    text-align: center;
+    margin-bottom: 200px;
+}
+section .content h2{
+    font-size: 3em;
+    color: whitesmoke;
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: 'tangerine', serif;
+
+}
+section .content p{
+    font-size: 1.3em;
+    color: whitesmoke;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+section a{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*color: #1670f0;*/
+    color: white;
+    padding: 30px 60px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    overflow: hidden;
+    margin-top: 15px;
+
+}
+section a:before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: 50%;
+    background: rgba(255,255,255,0.05);
+}
+section a span:nth-child(1){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #0c002b, #1779ff);
+
+    animation: animate1 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate1{
+    0%
+    {
+        transition: translateX(-100%);
+    }
+    100%
+    {
+        transition: translateX(100%);
+    }
+}
+a span:nth-child(2){
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0c002b, #1779ff);
+    animation: animate2 2s linear infinite;
+}
+@keyframes animate2{
+    0%
+    {
+        transition: translateY(-100%);
+    }
+    100%
+    {
+        transition: translateY(100%);
+    }
+}
+a span:nth-child(3){
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, #0c002b, #1779ff);
+    animation: animate3 2s linear infinite;
+}
+@keyframes animate3{
+    0%
+    {
+        transition: translateX(100%);
+    }
+    100%
+    {
+        transition: translateX(-100%);
+    }
+}
+a span:nth-child(4){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, #0c002b, #1779ff);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate4{
+    0%
+    {
+        transition: translateY(100%);
+    }
+    100%
+    {
+        transition: translateY(-100%);
+    }
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a :hover{
+    color: white;
+}
+
+/*.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-top: 200px;
+  }
+  .column img{
+      height: 100px;
+      width: 100%;
+  }
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  /*.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  /*@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  /*.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }*/
+  .popular_subjects {
+	display: flex;
+	/*margin: auto;*/
+	text-align: center;
+    margin-top: 200px;
+    padding-right: 50px;
+    height: 50%;
+}
+.eng, .math, .science {
+	flex: 1;
+	padding-right: 0;
+	padding-left: 0;
+	margin: 10px 90px 10px 90px;
+	max-width: auto;
+    height: 300px;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.popular_subjects img{
+        border-radius: 5px 5px 0 0;
+      
+}
+
+
+
+p {
+    justify-content: center;
+    align-items: center;
+}
+.clearfix {
+    clear: both;
+}
+footer {
+	background: #ccc;
+	color: #660066;
+	height: 350px;
+    position: relative;
+    margin-top: 500px;
+}
+
+footer .footer-content {
+	height: 300px;
+	display: flex;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+footer .footer-content .footer-section {
+	flex: 1;
+}
+
+footer .footer-content .footer-section h1 {
+	color: black;
+	font-size: 20px;
+    padding-left: 40px;
+    margin-top: 50px;
+}
+
+footer .footer-content ul li {
+	display: block;
+	margin-bottom: 10px;
+	transition: all .3s;
+	list-style: none;
+
+}
+footer .footer-content ul li:hover {
+	color: darkslategray;
+	transition: all .3s;
+	text-decoration: none;
+	cursor: pointer;
+
+}
+
+
+footer .footer-content .company .socials a {
+	border: 1px solid gray;
+	height: 30px;
+	width: 30px;
+	padding-top: 5px;
+	margin-right: 5px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 5px;
+	transition: all .3s;
+
+}
+
+footer .footer-content .company .socials a:hover{
+	border: 1px solid silver;
+	color: silver;
+    transition: all .3s;
+    /*margin-top: 100px;*/
+    text-decoration: none; 
+} 
+
+
+footer .footer-bottom {
+	background: gray;
+	color: #fff;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding-top: 20px;
+
+}
+
+.pop{
+    margin-left: 500px;
+    font-size: 3.5em;
+    font-family: 'tangerine', serif;
+    margin-top: 100px;
+    font-weight: bold;
+}
+.holder{
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+	display: inline;
+	}

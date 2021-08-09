@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Homepagee.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Homepage.css')}}">
+    <title>Alpha Prep - Home</title>
+    {#<link rel="stylesheer" type="text/css" href="footer.css">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesomev5.6.3.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssfamilyTangerine.css')}}">
+    <script src="{{ url_for('static', filename = 'js/Homepagee.js')}}"></script>
+    <style>
+
+
+
+    </style>
+
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = "http://127.0.0.1:5000/mobile-error"
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="flashModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <ul class=flashes>
+                        {% for category, message in messages %}
+                        <li class="{{ category }}">
+                            <center>
+                                <p class="m-auto p-auto">{{ message }}</p>
+                            </center>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section>
+        <div class="content">
+            <img src="{{ url_for('static', filename='images/alpha preps3.png') }}" width="360" height="245">
+            <h2>Alpha's Purpose...</h2>
+            <p>Our purpose is to prepare students for their WASSCE exams. The app does this by
+                enabling students to answer various questions in relation to the subjects in which they’re
+                studying. The app is an adaptive app, this means that it understudies the progress of its users and
+                recommends areas for which they more effort and studies should be applied to.</p>
+        </div>
+        <a href="{{url_for('main.signup')}}">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Get started
+        </a>
+    </section>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Login')" id="defaultOpen">Login</button>
+        <button class="tablinks" onclick="location.href='/signup';"><a=href="/signup">Signup</button></a>
+        {% set rand = [1,2]%}
+        {% set r = rand|random %}
+        {% if r == 1 %}
+        <button class="tablinks" onclick="openCity(event, 'Guest')"><a=href="/english">Try A Guest Quiz</button></a>
+        {% else %}
+        {%set subject = ['social','inter','math'] %}
+        {%set r = subject|random %}
+        <form action='/TestLanding' method='POST'><button class="tablinks" name='subject' type="submit" value="{{r}}">Try A Guest Quiz</button></form>
+        {% endif %}
+        <button class="tablinks" onclick="openCity(event, 'Subjects')">Subjects</button>
+        <button class="tablinks" onclick="openCity(event, 'About')">About</button>
+    </div>
+
+
+    <div id="Login" class="tabcontent">
+        <br>
+
+        <div class="center">
+            <div class="header">
+                Login Form</div>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                {% if form.email.errors %}
+                {{ form.email(placeholder="Email") }}
+                <i class="far fa-envelope"></i>
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email(placeholder="Email") }}
+                <i class="far fa-envelope"></i>
+                {% endif %}
+
+                {% if form.password.errors %}
+                {{ form.password(placeholder="Password") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.password(id="pswrd",placeholder="Password") }}
+                {% endif %}
+                <i class="fas fa-eye" onclick="show()"></i>
+                <input type="submit" />
+                <a href="/reset_password">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="About" class="tabcontent">
+        <h2>Alpha Prep App</h2><br><br>
+
+        <center>
+            <p><b>Alpha Prep App is a web-based application geared towards helping students prepare for their final examination.
+                    The app is currerntly designed for students under the West African Senior Schools Certificate Exam cirriculum.<br><br>
+                    Alpha Prep helps students take tests, see where they're lacking and suggests tutorials for them to take to better understand their course.
+                    The app also helps students track their progress with their test scores.<br><br>
+
+                    Alpha Prep is currently only offering tests for the core subjects, namely, English, Core Mathematics, Social Studies and Integrated Science.
+                    The webapp is user friendly and it's the hope of the designers that the users/students are able to gain help from this app to pass their examination.<br><br>
+
+                    You can contact us via email at: alphawebapp0@gmail.com</b></p><br>
+
+            <button><a=href="/about-dev">About Our Developers</a></button>
+        </center>
+    </div>
+
+    <div id="Subjects" class="tabcontent">
+        <p class="pop">Our Popular Subjects</p>
+
+        <div class="popular_subjects">
+
+            <div class="eng">
+                <img id="isub" src="{{ url_for('static', filename='images/eng.jpg') }}">
+                <div class="holder">
+                    <p>English</p>
+                </div>
+            </div>
+
+            <div class="math">
+                <img id="isub" src="{{ url_for('static', filename='images/math.jpg') }}">
+                <div class="holder">
+                    <p>Mathematics</p>
+                </div>
+            </div>
+
+            <div class="science">
+                <img id="isub" src="{{ url_for('static', filename='images/science2.png') }}">
+                <div class="holder">
+                    <p>Science</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        function show() {
+            var pswrd = document.getElementById('pswrd');
+            var icon = document.querySelector('.fas');
+            if (pswrd.type === "password") {
+                pswrd.type = "text";
+                pswrd.style.marginTop = "20px";
+                icon.style.color = "#7f2092";
+            } else {
+                pswrd.type = "password";
+                icon.style.color = "grey";
+            }
+        }
+
+    </script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+    </script>
+
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section courses">
+                <h1>COURSES AVAILABLE</h1><br>
+                <ul>
+                    <li>English</li>
+                    <li>Core Mathematics</li>
+                    <li>Integrated Science</li>
+                    <li>Social Studies</li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h1>QUICK LINKS</h1><br>
+                <ul>
+                    <li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Resources</li>
+                    <a target="_blank" href="https://drive.google.com/file/d/1AFU_C5LwukzrQIwzDThfKJJZiBEAvHjH/view?usp=sharing">
+                        <li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Requirement Documentation</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="footer-section support">
+                <h1>SUPPORT</h1><br>
+                <ul>
+                    <li>&nbsp; &nbsp;&nbsp; &nbsp;Get help</li>
+                    <a href="/bugs">
+                        <li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Report A Bug</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="footer-section company">
+                <h1>COMPANY</h1><br>
+                <ul>
+                    <a href="/about-dev">
+                        <li>&nbsp; &nbsp;&nbsp; &nbsp;About Us</li>
+                    </a>
+
+                    <li>&nbsp; &nbsp;&nbsp; &nbsp;Contact Us:</li>
+                </ul>
+                <div class="socials">
+                    <a target="_blank" href="https://web.facebook.com/alph.prep.9"><i class="fab fa-facebook"></i></a>
+                    <a target="_blank" href="https://twitter.com/PrepAlpha"><i class="fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/prepalpha0/"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCP-1I6pXYdTpyt4EdJY_jHQ/?guided_help_flow=5"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Alpha Prep App | Designed by Alpha Group
+        </div>
+    </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+
+
+
+<script>
+   {% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+        $(window).on('load', function(){
+            $('#flashModal').modal('show');
+        });
+   {% endif %}
+   {% endwith %}
+
+</script>
+
+
+</html>

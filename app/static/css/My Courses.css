@@ -1,0 +1,96 @@
+body {
+    background-color: rgb(212, 196, 164);
+}
+
+section {
+    margin: 10px;
+    display: block;
+}
+
+section header {
+    background-color: #a68ca9;
+}
+
+section header h1 {
+    padding: 10px;
+    margin: 0px;
+    padding-left: 30px;
+}
+
+section .courseGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 880px) {
+    .courseGrid .Geo {
+        grid-area: Geo;
+    }
+    .courseGrid .Phy {
+        grid-area: Phy;
+    }
+    .courseGrid .Int {
+        grid-area: Int;
+    }
+    .courseGrid .Soc {
+        grid-area: Soc;
+    }
+    .courseGrid .Eco {
+        grid-area: Eco;
+    }
+    .courseGrid .Gov {
+        grid-area: Gov;
+    }
+    .courseGrid .Elec {
+        grid-area: Elec;
+    }
+    .courseGrid .Core {
+        grid-area: Core;
+    }
+    section .courseGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        grid-template-areas: ". Core Core ." ". Soc Soc ." ". Int Int ." ". Elec Elec ." ". Phy Phy ." ". Gov Gov ." ". Geo Geo ." ". Eco Eco .";
+    }
+}
+
+.courseGrid .wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px 3px;
+    border-radius: 15px 15px;
+    box-shadow: -6px -6px 20px rgb(153, 152, 152), 6px 6px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgb(153, 150, 145);
+}
+
+section a {
+    justify-content: center;
+    text-decoration: none;
+}
+
+.wrapper .subjectIcon {
+    align-self: center;
+}
+
+.wrapper .subjectBox {
+    align-self: center;
+}
+
+.courseGrid img {
+    width: 135px;
+    height: 135px;
+    position: relative;
+}
+
+.courseGrid .wrapper:hover {
+    cursor: pointer;
+    color: #660066;
+    box-shadow: -6px -6px 10px rgb(175, 171, 171, 0.5), inset -6px -6px 10px rgba(173, 170, 170, 0.8), inset 6px 6px 20px rgba(0, 0, 0, 0.05), 6px 6px 20px rgba(0, 0, 0, 0.2);
+}

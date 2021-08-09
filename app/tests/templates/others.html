@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+<style>
+body{
+   margin:0;
+   padding: 0;
+   text-align: right;
+   font-family: sans-serif;
+   font-weight: 100;
+   background-color: #E7F3B0;
+
+   
+}
+
+.header{
+background-color: #660066;
+margin-top: 0px;
+
+}
+
+.intro {
+	text-align: center;
+	margin-top: -20px;
+}
+
+.header img{
+	margin-left: 10px;
+}
+
+.intro-text{
+	text-align: center;
+}
+
+h1{
+color: #396;
+font-weight: 100;
+font-size: 20px;
+margin: 30px 0px 20px;
+}
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 15px;
+	border: 2px solid black;
+	border-radius: 50px;
+	padding: 10px 10px 10px 10px;
+	background-color: white;
+}
+#clockdiv > div{
+	padding: 8px;
+	border-radius: 30px;
+	background: #7F7B7B;
+	display: inline-block;
+}
+#clockdiv div > span{
+	padding: 8px;
+	border-radius: 20px;
+	background: black;
+	display: inline-block;
+
+}
+smalltext{
+	padding-top: 5px;
+	font-size: 8px;
+}
+
+.clock{
+	border: 5px solid black;
+	background
+}
+
+.start-button{
+	margin-top: 0px;
+    
+}
+
+.start-button button{
+	border-radius: 20px;
+	font-weight: bold;
+	background: transparent;
+	background-color: white;
+	border-radius: 20px;
+	width: 70px;
+	height: 25px;
+    cursor: pointer;
+}
+
+.start-button button:hover{
+background-color:#B7C1D2; 
+color:#F0DEFA;
+
+}
+
+.exit-button{
+	margin-left: 140px;
+	margin-top: -25px;
+	margin-bottom: 10px
+}
+
+.exit-button button{
+	border-radius: 20px
+}
+
+</style>
+
+
+<!-- 
+
+Some notes before you start:
+- This is the page that the test page inherits from, so it has basically the same layout as the test page
+- I have commented out the backend parts, so you can get some of the things I am talking about.
+- Feel free to remove the backend parts out if need be
+- You can change every imported font and all. After you style it, you can remove the top parts.
+ I'm thinking the header shouldn't appear on the questions page. Makes it feel like a full screen effect. 
+ 
+-->
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Alpha Test Page - {{subject[0]|upper}}{{subject[1:]}}</title>
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+<link id="avast_os_ext_custom_font" href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"></head>
+
+<body scroll="auto" style="margin:0" >
+
+<table  height="100%" style="margin:-3px; padding: 0;">
+  <tbody><tr> 
+    <td class="header" height="35" colspan="3" > 
+    {% if subject == 'social' %}
+		{% if current_user.is_authenticated %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, {{ current_user.username }} to your Level {{current_user.user_level }} Social Studies Test</a></font></strong> </font></div>
+		{% else %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, Guest to your Level {{current_user.user_level }} Social Studies Test</a></font></strong> </font></div>
+		{% endif %}
+    {% elif subject == 'math' %}
+		{% if current_user.is_authenticated %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, {{ current_user.username }} to your Level {{current_user.user_level }} Core Mathematics Test</a></font></strong> </font></div>
+		{% else %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, Guest to your Level {{current_user.user_level }} Core Mathematics Test</a></font></strong> </font></div>
+		{% endif %}
+	{% elif subject == 'inter' %}
+		{% if current_user.is_authenticated %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, {{ current_user.username }} to your Level {{current_user.user_level }} Integrated Science Test</a></font></strong> </font></div>
+		{% else %}
+			<img src="{{ url_for('static', filename='images/alpha preps3.png') }}" height="30px" alt="C'ant find image"><div class="intro" align="center"><font size="+1"><strong><font color="#FFFFFF"><a class="intro-text">Welcome, Guest to your Level {{current_user.user_level }} Integrated Science Test</a></font></strong> </font></div>
+		{% endif %}
+	{% endif %}
+	
+	</td>
+	
+  </tr>
+  
+<tr class="clock" > 
+    <td height="15" width="44%"><font size="+1"></font> </td>
+    <td height="15" width="22%" align="right" style="padding:10px 40px 0px 0px;"><font size="+1">Time remaining:<br>
+     <div id="clockdiv">
+<div>
+	<span class="hour" id="hour"></span>
+	<div class="smalltext">H</div>
+</div>
+<div>
+	<span class="minute" id="minute"></span>
+	<div class="smalltext">M</div>
+</div>
+<div>
+	<span class="second" id="second"></span>
+	<div class="smalltext">S</div>
+</div>
+</div>
+
+<p id="demo"></p> </font></td>
+  </tr>
+   <tr>
+    <td height="550" colspan="3"> 
+      <div class="tutorial" id="test_welcome" align="center"> 
+	{% block content %} 
+	<blockquote>
+		{% if current_user.is_anonymous %}
+			This test was randomly selected by our system. Try it out!
+		{% endif %} 
+
+		
+		<h2>Time Allocated for this test: 30 Minutes!</h2>
+		<table border="1" bgcolor="#000000" cellpadding="3" width="90%"> <!--I think we should maintain the table format, it gives the outer lining that you see -->
+		<tbody>
+		<tr>
+			<td bgcolor="#FFFFFF">
+				
+				<h3>Indicating your answer.</h3>
+				<p> 
+					This test uses multiple-choice questions. To answer each multiple-choice question in your exam click your answer with the mouse.
+				<br><br>
+					Practice:
+					<br>
+					</p><ol type="1">
+						<li>Select an answer now. Notice that the open circle next to the answer you chose is now filled in.</li>
+						<li>Change your answer by selecting from the different choices.</li>
+						<li>Click Start to begin the test.</li>
+					</ol>
+
+					<b>Sample Question</b>
+					<blockquote>
+						What colour is the sky?<br><br>
+						<input type="radio" value="1" id="E5.351A1" name="E5.351A"><label for="E5.351A1" accesskey="1"> purple.</label><br>
+						<input type="radio" value="2" id="E5.351A2" name="E5.351A"><label for="E5.351A2" accesskey="2"> yellow.</label><br>
+						<input type="radio" value="3" id="E5.351A3" name="E5.351A"><label for="E5.351A3" accesskey="3"> green.</label><br>
+						<input type="radio" value="4" id="E5.351A4" name="E5.351A"><label for="E5.351A4" accesskey="4"> blue.</label>
+					</blockquote>
+
+				<b>Click on the 'Start' button to continue to the test. NB: Your time starts immediately you click on it!</b>
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		
+	</blockquote>
+
+		  </div>
+		</td>
+	  </tr>
+	  <tr> 	  
+			  <td class="start-button" > 
+				<div align="center" ><a class="submit" href="/testpage"><button>Start</button></a></div>
+			
+				<div align="center" class="exit-button"><a class="nav-item nav-link" href="javascript: window.history.go(-1)"><button>Exit</button></a></div>
+			  </td>
+		
+		 
+	
+	  </tr>
+	</tbody></table>
+
+
+	</body></html>
+
+{% endblock content %} 

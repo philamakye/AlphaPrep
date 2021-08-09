@@ -1,0 +1,266 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% extends "tutorialslanding_final.html" %}
+{% block tutorialbody%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/science.css')}}">
+
+<script>
+function showlevel1(){
+		var modal = document.getElementById("level1");
+		modal.style.display = "block";
+	}
+	
+function hidelevel1(){
+	var modal = document.getElementById("level1");
+	modal.style.display = "none";
+	
+	}
+function showlevel2(){
+		var modal = document.getElementById("level2");
+		modal.style.display = "block";
+	}
+	
+function hidelevel2(){
+	var modal = document.getElementById("level2");
+	modal.style.display = "none";
+	
+	}
+function showlevel3(){
+		var modal = document.getElementById("level3");
+		modal.style.display = "block";
+	}
+	
+function hidelevel3(){
+	var modal = document.getElementById("level3");
+	modal.style.display = "none";
+	
+	}
+function submit_diversity(){
+		document.getElementById('diversityform').submit()
+	}
+function submit_cell(){
+		document.getElementById('cellform').submit()
+	}
+function submit_plantgrowth(){
+		document.getElementById('plantgrowthform').submit()
+	}
+function submit_energy(){
+		document.getElementById('energyform').submit()
+	}
+function submit_solar(){
+		document.getElementById('solarform').submit()
+	}
+function submit_electronics(){
+		document.getElementById('electronicsform').submit()
+	}
+function submit_atom(){
+		document.getElementById('atomform').submit()
+	}
+function submit_acids(){
+		document.getElementById('acidsform').submit()
+	}
+function submit_gases(){
+		document.getElementById('gasesform').submit()
+	}
+function submit_rocks(){
+		document.getElementById('rocksform').submit()
+	}
+function submit_soil(){
+		document.getElementById('soilform').submit()
+	}
+function submit_air(){
+		document.getElementById('airform').submit()
+	}
+function submit_atmosphere(){
+		document.getElementById('atmosphereform').submit()
+	}
+function submit_biotechnology(){
+		document.getElementById('biotechnologyform').submit()
+	}
+function submit_nitrogen(){
+		document.getElementById('nitrogenform').submit()
+	}
+function submit_sound(){
+		document.getElementById('soundform').submit()
+	}
+function submit_pests(){
+		document.getElementById('pestsform').submit()
+	}
+function submit_forces(){
+		document.getElementById('forcesform').submit()
+	}
+function submit_machines(){
+		document.getElementById('machinesform').submit()
+	}
+function submit_magnetism(){
+		document.getElementById('magnetismform').submit()
+	}
+function submit_water(){
+		document.getElementById('waterform').submit()
+	}
+function submit_metals(){
+		document.getElementById('metalsform').submit()
+	}
+function submit_extraction(){
+		document.getElementById('extractionform').submit()
+	}
+function submit_excretory(){
+		document.getElementById('excretoryform').submit()
+	}
+function submit_dentition(){
+		document.getElementById('dentitionform').submit()
+	}
+function submit_respiratory(){
+		document.getElementById('respiratoryform').submit()
+	}
+function submit_cropc(){
+		document.getElementById('cropform').submit()
+	}
+function submit_ornamental(){
+		document.getElementById('ornamentalform').submit()
+	}
+function submit_endogenous(){
+		document.getElementById('endogenousform').submit()
+	}
+function submit_information(){
+		document.getElementById('informationform').submit()
+	}
+function submit_reproduction(){
+		document.getElementById('reproductionform').submit()
+	}
+function submit_photosynthesis(){
+		document.getElementById('photosynthesisform').submit()
+	}
+function submit_circulatory(){
+		document.getElementById('circulatoryform').submit()
+	}
+function submit_nervous(){
+		document.getElementById('nervousform').submit()
+	}
+function submit_variation(){
+		document.getElementById('varitationform').submit()
+	}
+function submit_electrical(){
+		document.getElementById('electricalform').submit()
+	}
+function submit_light(){
+		document.getElementById('lightform').submit()
+	}
+function submit_heat(){
+		document.getElementById('heatform').submit()
+	}
+function submit_rusting(){
+		document.getElementById('rustingform').submit()
+	}
+function submit_organic(){
+		document.getElementById('organicform').submit()
+	}
+function submit_radioactivity(){
+		document.getElementById('radioactivityform').submit()
+	}
+function submit_animal(){
+		document.getElementById('animalform').submit()
+	}
+function submit_fish(){
+		document.getElementById('fishform').submit()
+	}
+function submit_tectonic(){
+		document.getElementById('tectonicform').submit()
+	}
+function submit_watermove(){
+		document.getElementById('watermoveform').submit()
+	}
+</script>
+
+   <div class="section2" id="blur">
+	<br>
+       <div class="head">
+           <h2>INTEGRATED SCIENCE<hr></h2> 
+       </div>
+      <br>
+     <div class="levels">
+      <div class="level1">
+         <img class="one" src="{{ url_for('static', filename='images/science.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel1()"><h3>Level 1</h3></a>
+      </div>
+      
+       <div class="level2">
+        <img class="two" src="{{ url_for('static', filename='images/science.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel2()"><h3>Level 2</h3></a>
+       </div>
+       
+       <div class="level3">
+         <img class="three" src="{{ url_for('static', filename='images/science.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel3()"><h3>Level 3</h3></a>
+       </div>
+
+     </div>
+     
+       
+   </div>
+    <div class="topics" id="level1" style="display: none;">
+	  <a href="#" onclick="javascript: hidelevel1()"><i class="fas fa-window-close"></i></a>
+	  <ul>
+		<li class="topic-head">TOPICS</li>
+		<form id= "diversityform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="DIVERSITY OF LIVING AND NON-LIVING THINGS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_diversity()">Diversity of Living and Non-Living Things</a></li></form>
+		<form id= "cellform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="CELL AND CELL DIVISION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_cell()">Cell and Cell Division</a></li></form>
+		<form id= "plantgrowthform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="REPRODUCTION AND GROWTH IN PLANTS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_plantgrowth()">Reproduction and Growth in Plants</a></li></form>
+		<form id= "energyform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="FORMS OF ENERGY AND ENERGY TRANSFORMATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_energy()">Forms of Energy and Energy Transformation</a></li></form>
+		<form id= "solarform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="SOLAR ENERGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_solar()">Solar Energy</a></li></form>
+		<form id= "electronicsform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ELECTRONICS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_electronics()">Electronics</a></li></form>
+		<form id= "atomform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="STATES OF MATTER AND ATOMIC STRUCTURE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_atom()">States of Matter and Atomic Structure</a></li></form>
+		<form id= "acidsform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ACIDS, BASES AND SALTS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_acids()">Acids, Bases and Salts</a></li></form>
+		<form id= "gasesform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="PREPARATION AND COLLECTION OF GASES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_gases()">Preparation and Collection of Gases</a></li></form>
+		<form id= "rocksform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ROCKS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_rocks()">Rocks</a></li></form>
+		<form id= "soilform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="SOIL CONSERVATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_soil()">Soil Conservation</a></li></form>
+		<form id= "airform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="AIR MOVEMENTS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_air()">Air Movements</a></li></form>
+		<form id= "atmosphereform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ATMOSPHERE AND CLIMATE CHANGE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_atmosphere()">Atmosphere and Climate Change</a></li></form>
+		<form id= "biotechnologyform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="BIOTECHNOLOGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_biotechnology()">Biotechnology</a></li></form>
+		<form id= "nitrogenform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="NITROGEN CYCLE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_nitrogen()">Nitrogen Cycle</a></li></form>
+		<form id= "soundform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="SOUND ENERGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_sound()">Sound Energy</a></li></form>
+	  </ul>
+  
+</div>
+ 
+ <div class="topics" id="level2" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel2()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+		<form id= "pestsform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="LIFE CYCLE OF PESTS AND PARASITES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_pests()">Life Cycle of Pests and Parasites</a></li></form>
+		<form id= "forcesform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="FORCES, MOTION AND PRESSURE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_forces()">Forces, Motion and Pressure</a></li></form>
+		<form id= "machinesform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="WORK AND MACHINES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_machines()">Work and Machines</a></li></form>
+		<form id= "magnetismform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="MAGNETISM" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_magnetism()">Magnetism</a></li></form>
+		<form id= "waterform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="WATER" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_water()">Water</a></li></form>
+		<form id= "metalsform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="METALS AND NON-METALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_metals()">Metals and Non-Metals</a></li></form>
+		<form id= "extractionform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="EXTRACTION OF METALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_extraction()">Extraction of Metals</a></li></form>
+		<form id= "excretoryform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="EXCRETORY SYSTEM" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_excretory()">Excretory System</a></li></form>
+		<form id= "dentitionform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="DENTITION, FEEDING AND DIGESTION IN MAMMALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_dentition()">Dentition, Feeding and Digestion in Mammals</a></li></form>
+		<form id= "respiratoryform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="RESPIRATORY SYSTEM" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_respiratory()">Respiratory System</a></li></form>
+		<form id= "cropform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="CROP PRODUCTION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_crop()">Crop Production</a></li></form>
+		<form id= "ornamentalform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_ornamental()">Ornamental Plants and Lawns</a></li></form>
+		<form id= "endogenousform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ENDOGENOUS TECHNOLOGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_endogenous()">Endogenous Technology</a></li></form>
+		<form id= "informationform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="INFORMATION,COMMUNICATION AND TECHNOLOGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_information()">Information, Communication and Technology</a></li></form>
+		<form id= "reproductionform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="REPRODUCTION AND GROWTH IN MAMMALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_reproduction()">Reproduction and Growth in Mammals</a></li></form>
+		<form id= "photosynthesisform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="PHOTOSYNTHESIS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_photosynthesis()">Photosynthesis</a></li></form>
+  </ul>
+  
+</div>
+
+<div class="topics" id="level3" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel3()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+		<form id= "circulatoryform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="CIRCULATORY SYSTEM" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_circulatory()">Circulatory System</a></li></form>
+		<form id= "nervousform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="NERVOUS SYSTEM" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_nervous()">Nervous System</a></li></form>
+		<form id= "varitationform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="VARIATION, INHERITANCE AND EVOLUTION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_variation()">Variation, Inheritance and Evolution</a></li></form>
+		<form id= "electricalform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ELECTRICAL ENERGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_electrical()">Electrical Energy</a></li></form>
+		<form id= "lightform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="LIGHT ENERGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_light()">Light Energy</a></li></form>
+		<form id= "heatform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="HEAT ENERGY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_heat()">Heat Energy</a></li></form>
+		<form id= "rustingform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="RUSTING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_rusting()">Rusting</a></li></form>
+		<form id= "organicform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ORGANIC CHEMISTRY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_organic()">Organic Chemistry</a></li></form>
+		<form id= "radioactivityform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="RADIOACTIVITY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_radioactivity()">Radioactivity</a></li></form>
+		<form id= "animalform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="ANIMAL PRODUCTION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_animal()">Animal Production</a></li></form>
+		<form id= "fishform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="FISH FARMING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_fish()">Fish Farming</a></li></form>
+		<form id= "tectonicform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="TECTONIC MOVEMENTS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_tectonic()">Tectonic Movement</a></li></form>
+		<form id= "watermoveform" action='/tutorials' method='POST'><input name="subject" value="inter" hidden /><input name="topic" value="WATER MOVEMENTS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_watermove()">Water Movements</a></li></form>
+  </ul>
+  
+</div>
+
+{% endblock %}

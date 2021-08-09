@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up | ALPHA Prep</title>
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signup.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signup_box.css')}}">
+
+</head>
+
+
+
+<body>
+
+{% extends "prototype.html" %}
+{% block body %}
+<div class="main-section ">
+        <div class="welcome-section ">
+            <h1 class="welcome-text ">
+                Join the <span class="fun-text ">fun</span>
+            </h1>
+            <h3>Begin your study journey today.</h3>
+        </div>
+        <div class="form-section ">
+            <div class="signbox ">
+                <h2>Sign Up</h2>
+                    <form method="POST" action="/signup" name="myForm">
+                        {{ form.hidden_tag() }} {# hides our form info #}
+                        <div class="inputBox ">
+
+						{% if form.username.errors %}
+							{{ form.username(class="form-control form-control-lg is-invalid", autocomplete="nofill") }}
+							<div class="invalid-feedback">
+								{% for error in form.username.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.username(class="form-control form-control-lg", autocomplete="nofill") }}
+						{% endif %}
+                            <p>Username</p>
+                        </div>
+                        <div class="inputBox ">
+                           
+						{% if form.email.errors %}
+							{{ form.email(class="form-control form-control-lg is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.email.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.email(class="form-control form-control-lg") }}
+						{% endif %}
+                            <p>Email</p>
+                        </div>
+                        <div class="inputBox ">
+                            
+						{% if form.password.errors %}
+							{{ form.password(class="form-control form-control-lg is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.password.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.password(class="form-control form-control-lg") }}
+						{% endif %}
+                                <p>Password</p>
+                        </div>
+                        <div class="inputBox ">
+                            
+						{% if form.confirm_password.errors %}
+							{{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.confirm_password.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.confirm_password(class="form-control form-control-lg") }}
+						{% endif %}
+                                <p>Confirm password</p>
+                        </div>
+						<div class="inputBox ">
+							{{ form.course_selection.label(class="form-control-label") }}
+                            {% if form.course_selection.errors %}
+								{{ form.course_selection(class="form-control form-control-lg is-invalid") }}
+								<div class="invalid-feedback">
+									{% for error in form.course_selection.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+							{% else %}
+								{{ form.course_selection(class="form-control form-control-lg") }}
+							{% endif %}
+                            
+                        </div>
+						
+                            <br>
+							
+                            <button type="submit ">Sign Up</button>
+
+                    </form><div class="clearfix "></div><br>
+
+				<div class="border-top pt-3">
+					<small class="text-muted">
+						Already Have An Account? <a class="ml-2" href="{{ url_for('main.login') }}" style="color: white;">Sign In</a>
+					</small>
+				</div>
+				<br>
+                <footer><center>&copy; ALPHA PREP</center></footer>
+            </div>
+        </div>
+    </div>
+
+<div id="page-container">
+<div class="content-wrap">
+	
+</div>
+
+
+
+</div>
+</body>
+{% endblock body %}
+</html>

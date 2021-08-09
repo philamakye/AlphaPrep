@@ -1,0 +1,162 @@
+ 
+
+
+body {
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    margin: 0;
+}
+.green{
+    color: #3A8A34;
+}
+.blue{
+    color: #5447c8;
+}
+
+.orange{
+    color: #fda32e;
+}
+
+
+#page-container{
+	position: absolute;
+	min-height: 100vh;
+}
+
+.content-wrap{
+	padding-bottom: 2.5rem;
+	background-size: cover;
+}
+.footer{
+	position: fixed;
+	bottom: 0; left: 0; right: 0;
+	width:100%;
+	height: 60px;
+	background-color:#660066; 
+    overflow: none;
+    color: white;
+    font-family: sans-serif;
+}
+.footer nav ul{
+	float: right;
+	display: flex;
+	list-style: none;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+.footer nav ul a:hover{
+background: #E6AE55;
+color: #090101;
+}
+.footer nav ul a{
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-decoration: none;
+
+}
+
+
+.emblem a:first-of-type{
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.emblem a:not(:first-child){
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+}
+
+.grid{
+    
+    display: grid;
+    grid-template-areas: "one two two two"
+                         "one two two two";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-gap: 5px; 
+     margin-bottom: -400px;
+   }
+
+.section1{
+    border-right: 2px solid #691481;
+    grid-area: one;
+    background-color: #F5F1F1;
+    margin-bottom: -500px;
+}
+
+.section2{
+    border-left: 2px solid #691481;
+    grid-area: two;
+    background-color: rgb(238, 234, 177);
+     margin-bottom: -500px;
+}
+
+.section1 ul {
+    margin-top: 0px;
+margin-left: -40px;
+}
+
+.section1 ul li{
+    list-style: none;
+}
+
+.section1 ul li a{
+    
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+    color: black;
+}
+
+.section1 ul li a:hover{
+    background-color: #A8FAC7;
+}
+.section1 .fas{
+    color: #617E48;
+}
+
+.section1 .subject-tab{
+    background-color: #3FD9AF;
+}
+
+.section1 .subject-tab:hover{
+     background-color: #3FD9AF;
+}
+
+.section2 .head h2 {
+    text-align: center;
+    margin-top: 0px;
+
+}
+.section2 .head h3{
+    margin-left: 10px;
+}
+
+.videos{
+    background-color: white;
+    border: 2px solid #691481;
+    width: auto;
+    height: 290px;
+    display: block;
+    margin-top: -15px;
+    
+}
+
+.videos video{
+    margin-top:-83px;
+}
+
+.Nav-text p{
+    text-align: center;
+    font-size: 20px;
+}
+

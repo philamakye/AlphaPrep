@@ -1,0 +1,135 @@
+body {
+    box-sizing: border-box;
+  
+    
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+}
+
+.main-section {
+
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    padding: 4rem 4rem;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+}
+
+.welcome-section h3 {
+    color: black;
+    padding-left: 90px;
+    margin-top: -15px;
+}
+.welcome-section h1 {
+    color: black;
+    padding-left: 90px;
+    margin-top: -5px;
+}
+
+.welcome-text {
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: bold;
+    padding-left: 90px;
+}
+
+.fun-text {
+    color: orange;
+}
+
+.signbox {
+    width: 50vw;
+    float: right;
+    max-width: 70%;
+    color: rgb(40, 89, 129);
+    background: rgba(22, 22, 22, 0.8);
+    box-sizing: border-box;
+    padding: 2.5rem 3.2rem;
+    border-radius: 15px;
+}
+
+.main-section h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+}
+
+.inputBox {
+    position: relative;
+    border: none;
+    padding-bottom: 7px;
+}
+
+.signbox p {
+    top: -15px;
+    left: 0;
+    position: absolute;
+    font-weight: bold;
+    font-size: 15px;
+    pointer-events: none;
+    transition: .6s;
+    letter-spacing: 1px;
+}
+
+.signbox input {
+    width: 100%;
+    padding: 3px 0;
+    margin-bottom: 25px;
+    border: none;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    background: transparent;
+    outline: none;
+    color: rgb(248, 246, 246);
+    font-size: 16px;
+}
+
+.signbox input:focus~p,
+.signbox input:valid~p {
+    top: -28px;
+    left: 0;
+    color: #fff;
+}
+
+@media (max-width: 800px) {
+    .main-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+
+.container {
+    position: relative;
+    top: 60px;
+    text-align: center;
+}
+
+.signbox button {
+    color: #fff;
+    position: relative;
+    background: transparent;
+    border-style: solid;
+    border-color: crimson;
+    outline: none;
+    width: 83px;
+    height: 34px;
+    border-radius: 16px;
+}
+
+.signbox button:hover {
+    background-color: crimson;
+    cursor: pointer;
+}
+
+.signbox button:active {
+    top:2px;
+}
+
+
+.signbox footer {
+    color: #fff;
+    font-size: x-small;
+}

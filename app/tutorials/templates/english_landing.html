@@ -1,0 +1,182 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+
+{% extends "tutorialslanding_final.html" %}
+<br>
+<br>
+{% block tutorialbody %}
+<script>
+	function submit_syn(){
+		document.getElementById('synform').submit()
+	}
+	function submit_atn(){
+		document.getElementById('atnform').submit()
+	}
+	function submit_int(){
+		document.getElementById('intform').submit()
+	}
+	function submit_syntax(){
+		document.getElementById('syntaxform').submit()
+	}
+	function submit_prep(){
+		document.getElementById('prepform').submit()
+	}
+	function submit_subverb(){
+		document.getElementById('subverbform').submit()
+	}
+	function submit_phrasal(){
+		document.getElementById('phrasalform').submit()
+	}
+	function submit_adverbs(){
+		document.getElementById('adverbsform').submit()
+	}
+	function submit_seqoftense(){
+		document.getElementById('seqoftenseform').submit()
+	}
+	function submit_qstnans(){
+		document.getElementById('qstnansform').submit()
+	}
+	function submit_order(){
+		document.getElementById('orderform').submit()
+	}
+	function submit_conjunctions(){
+		document.getElementById('conjunctionsform').submit()
+	}
+	function submit_possadj(){
+		document.getElementById('possadjform').submit()
+	}
+	function submit_personal(){
+		document.getElementById('personalform').submit()
+	}
+	function submit_relative(){
+		document.getElementById('relativeform').submit()
+	}
+	function submit_posspro(){
+		document.getElementById('possproform').submit()
+	}
+	function submit_interropro(){
+		document.getElementById('interroproform').submit()
+	}
+	function submit_story(){
+		document.getElementById('storyform').submit()
+	}
+	function submit_summary(){
+		document.getElementById('summaryform').submit()
+	}
+	function submit_comprehension(){
+		document.getElementById('comprehensionform').submit()
+	}
+	function submit_literature(){
+		document.getElementById('literatureform').submit()
+	}
+	function submit_formal(){
+		document.getElementById('formalform').submit()
+	}
+	function submit_informal(){
+		document.getElementById('informalform').submit()
+	}
+	function submit_articles(){
+		document.getElementById('articlesform').submit()
+	}
+	function submit_debate(){
+		document.getElementById('debateform').submit()
+	}
+	function submit_speech(){
+		document.getElementById('speechform').submit()
+	}
+	function submit_short(){
+		document.getElementById('shortform').submit()
+	}
+	function submit_report(){
+		document.getElementById('reportform').submit()
+	}
+	function submit_descriptive(){
+		document.getElementById('descriptiveform').submit()
+	}
+	function submit_argumentativea(){
+		document.getElementById('argumentativeform').submit()
+	}
+	function submit_expository(){
+		document.getElementById('expositoryform').submit()
+	}
+	function submit_narrative(){
+		document.getElementById('narrativeform').submit()
+	}
+</script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/english.css')}}">
+
+<div class="section2" id="blur"><br>
+       <div class="head">
+           <h2>ENGLISH<hr></h2>
+			<center><p><b>Note that Best Complete section consists of topics listed below 'Intepretation of Sentences' in Lexis and Structure</b></p>
+			Below are some topics with videos available. <i class="fas fa-smile"></i></center>
+       </div>
+	<form method="POST" id="subjectform" action="/tutorials">
+		
+   <div class="topics">
+    <ul class="lexis">
+      <li class="lexis-head">Lexis and Structure</li>
+      <form id= "synform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="WORDS AND MEANING(SYNONYMS)" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_atn()">Words and Meanings(Synonyms)</a></li></form>
+      <form id= "atnform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="WORDS AND OPPOSITE(ANTONYMS)" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_atn()">Words and Opposites(Antonyms)</a></li></form>
+      <form id= "intform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="INTERPRETATION OF SENTENCES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_int()">Intepretation Of Sentences</a></li></form>
+      <form id= "syntaxform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="SYNTAX" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_syntax()">Syntax</a></li></form>
+      <form id= "subverbform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="SUBJECT VERB AGREEMENT" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_subverb()">Subject Verb Agreement</a></li></form>
+      <form id= "prepform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="PREPOSITIONS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_prep()">Prepositions</a></li></form>
+      <form id= "phrasalform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="PHRASAL VERBS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_phrasal()">Phrasal Verbs</a></li></form>
+      <form id= "adverbsform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="ADVERBS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_adverbs()">Adverbs</a></li></form>
+      <form id= "seqoftenseform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="SEQUENCE OF TENSES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_seqoftense()">Sequences of Tenses</a></li></form>
+      <form id= "qstnansform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="QUESTION AND ANSWER TAGS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_qstnans()">Question And Answer Tags</a></li></form>
+      <form id= "orderform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="ORDER OF WORDS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_order()">Order of Words</a></li></form>
+      <form id= "conjunctionsform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="CONJUNCTIONS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_conjunctions()">Conjunctions</a></li></form>
+      <form id= "possadjform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="POSSESSIVE ADJECTIVES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_possadj()">Possesive Adjectives</a></li></form>
+      <form id= "personalform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="PERSONAL PRONOUNS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_personal()">Personal Pronouns</a></li></form>
+      <form id= "relativeform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="RELATIVE PRONOUNS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_relative()">Relative Pronouns</a></li></form>
+      <form id= "possproform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="POSSESSIVE PRONOUNS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_posspro()">Possesive Pronouns</a></li></form>
+      <form id= "interroproform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="INTERROGATIVE PRONOUNS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_interropro()">Interrogative Pronouns</a></li></form>
+    </ul>
+	
+    <ul class="story">
+      <li class="story-head">Story Problems</li>
+      <form id= "storyform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="STORY PROBLEMS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_story()">Story Problems/Numbered Gaps</a></li></form>
+    </ul>
+    
+    <ul class="comprehension">
+      <li class="comprehension-head">Comprehension</li>
+      <form id= "comprehensionform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="COMPREHENSION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_comprehension()">Comprehension</a></li></form>
+    </ul>
+
+    <ul class="summary">
+      <li class="summary-head">Summary Writing</li>
+      <form id= "summaryform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="SUMMARY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_summary()">Summary Writing</a></li></form>
+    </ul>
+
+    <ul class="essay">
+      <li class="essay-head">Essay Writing</li>
+      <form id= "formalform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="FORMAL LETTERS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_formal()">Formal Letters</a></li></form>
+      <form id= "informalform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="INFORMAL LETTERS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_informal()">Informal Letters</a></li></form>
+      <form id= "articlesform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="ARTICLES FOR PUBLICATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_articles()">Articles for Publication</a></li></form>
+      <form id= "debateform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="DEBATE WRITING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_debate()">Debate Writing</a></li></form>
+      <form id= "speechform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="SPEECH WRITING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_speech()">Speech Writing</a></li></form>
+      <form id= "shortform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="WRITING SHORT STORIES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_short()">Writing Short Stories</a></li></form>
+      <form id= "reportform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="REPORT WRITING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_report()">Report Writing</a></li></form>
+      <form id= "descriptiveform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="DESCRIPTIVE ESSAYS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_descriptive()">Descriptive Essays</a></li></form>
+      <form id= "argumentativeform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="ARGUMENTATIVE ESSAYS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_argumentative()">Argumentative EssayS</a></li></form>
+      <form id= "expositoryform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="EXPOSITORY ESSAYS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_expository()">Expository Essays</a></li></form>
+      <form id= "narrativeform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="NARRATIVE ESSAYS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_narrative()">Narrative Essays</a></li></form>
+      <li><a> ||</a></li>
+      <li><a> ||</a></li>
+      <li><a> ||</a></li>
+      <li><a> ||</a></li>
+      <li><a> ||</a></li>
+    </ul> 
+
+    <ul class="literature">
+      <li class="literature-head">Literature</li>
+      <form id= "literatureform" action='/tutorials' method='POST'><input name="subject" value="english" hidden /><input name="topic" value="LITERATURE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_literature()">General Knowledge In Literature</a></li></form>
+    </ul>
+
+   </div>
+   </form>
+   <br><br><br><br>
+   </div>
+   
+{% endblock %}

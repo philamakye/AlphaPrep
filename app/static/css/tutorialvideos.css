@@ -1,0 +1,90 @@
+.tutorialvideos{
+    background-color: white;
+    border: 2px solid #691481;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-top: -15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 70px;
+  overflow-x: scroll;
+}
+
+.tutorialvideos iframe{
+    height: 300px;
+    width: 450px;
+}
+
+.grid{
+    
+    display: grid;
+    grid-template-areas: "one two two two"
+                         "one two two two";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-gap: 5px; 
+     margin-bottom: auto !important;
+   }
+
+.section1{
+    border-right: 2px solid #691481;
+    grid-area: one;
+    background-color: #F5F1F1;
+    margin-bottom: auto;
+}
+
+.section2{
+    border-left: 2px solid #691481;
+    grid-area: two;
+    background-color: rgb(238, 234, 177);
+     margin-bottom: -500px;
+}
+
+.section1 ul {
+    margin-top: 0px;
+margin-left: -40px;
+}
+
+.section1 ul li{
+    list-style: none;
+}
+
+.section1 ul li a{
+    
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+    color: black;
+}
+
+.section1 ul li a:hover{
+    background-color: #A8FAC7;
+}
+.section1 .fas{
+    color: #617E48;
+}
+
+.section1 .subject-tab{
+    background-color: #3FD9AF;
+}
+
+.section1 .subject-tab:hover{
+     background-color: #3FD9AF;
+}
+
+.section2 .head h2 {
+    text-align: center;
+    margin-top: 0px;
+
+}

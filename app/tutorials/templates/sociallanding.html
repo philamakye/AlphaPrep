@@ -1,0 +1,184 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% extends "tutorialslanding_final.html" %}
+{% block tutorialbody%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/social.css')}}">
+
+<script>
+function showlevel1(){
+		var modal = document.getElementById("level1");
+		modal.style.display = "block";
+	}
+	
+function hidelevel1(){
+	var modal = document.getElementById("level1");
+	modal.style.display = "none";
+	
+	}
+function showlevel2(){
+		var modal = document.getElementById("level2");
+		modal.style.display = "block";
+	}
+	
+function hidelevel2(){
+	var modal = document.getElementById("level2");
+	modal.style.display = "none";
+	
+	}
+function showlevel3(){
+		var modal = document.getElementById("level3");
+		modal.style.display = "block";
+	}
+	
+function hidelevel3(){
+	var modal = document.getElementById("level3");
+	modal.style.display = "none";
+	
+	}
+function submit_identity(){
+		document.getElementById('identityform').submit()
+	}
+function submit_adolescent(){
+		document.getElementById('adolescentform').submit()
+	}
+function submit_culture(){
+		document.getElementById('cultureform').submit()
+	}
+function submit_independence(){
+		document.getElementById('indepedenceform').submit()
+	}
+function submit_peace(){
+		document.getElementById('peaceform').submit()
+	}
+function submit_youth(){
+		document.getElementById('youthform').submit()
+	}
+function submit_science(){
+		document.getElementById('scienceform').submit()
+	}
+function submit_resource(){
+		document.getElementById('resourceform').submit()
+	}
+function submit_tips(){
+		document.getElementById('tipsform').submit()
+	}
+function submit_marriage(){
+		document.getElementById('marriageform').submit()
+	}	
+function submit_obligations(){
+		document.getElementById('obligationsform').submit()
+	}	
+function submit_parenting(){
+		document.getElementById('parentingform').submit()
+	}	
+function submit_socialization(){
+		document.getElementById('socializationform').submit()
+	}	
+function submit_leadership(){
+		document.getElementById('leadershipform').submit()
+	}	
+function submit_constitution(){
+		document.getElementById('constitutionform').submit()
+	}	
+function submit_role(){
+		document.getElementById('roleform').submit()
+	}	
+function submit_socio(){
+		document.getElementById('socioform').submit()
+	}	
+function submit_suitable(){
+		document.getElementById('suitableform').submit()
+	}	
+function submit_physical(){
+		document.getElementById('physicalform').submit()
+	}	
+function submit_education(){
+		document.getElementById('educationform').submit()
+	}	
+function submit_rights(){
+		document.getElementById('rightsform').submit()
+	}	
+function submit_ghana(){
+		document.getElementById('ghanaform').submit()
+	}	
+function submit_population(){
+		document.getElementById('populationform').submit()
+	}	
+function submit_work(){
+		document.getElementById('workform').submit()
+	}	
+</script>
+
+   <div class="section2" id="blur">
+   <br>
+       <div class="head">
+           <h2>SOCIAL STUDIES<hr></h2> 
+       </div>
+      <br>
+     <div class="levels">
+      <div class="level1">
+         <img class="one" src="{{ url_for('static', filename='images/social.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel1()"><h3>Level 1</h3></a>
+      </div>
+      
+       <div class="level2">
+        <img class="two" src="{{ url_for('static', filename='images/social.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel2()"><h3>Level 2</h3></a>
+       </div>
+       
+       <div class="level3">
+         <img class="three" src="{{ url_for('static', filename='images/social.png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel3()"><h3>Level 3</h3></a>
+       </div>
+
+     </div>
+     
+       
+   </div>
+    <div class="topics" id="level1" style="display: none;">
+	  <a href="#" onclick="javascript: hidelevel1()"><i class="fas fa-window-close"></i></a>
+	  <ul>
+		<li class="topic-head">TOPICS</li>
+			<form id= "identityform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_identity()">Self Identity</a></li></form>
+			<form id= "adolescentform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="ADOLESCENT REPRODUCTIVE HEALTH" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_adolescent()">Adolescent Reproductive Health</a></li></form>
+			<form id= "cultureform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="OUR CULTURE AND NATIONAL IDENTITY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_culture()">Our Culture and National Identity</a></li></form>
+			<form id= "indepedenceform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_independence()">National Independence and Self Reliance</a></li></form>
+			<form id= "peaceform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="PEACE BUILDING AND CONFLICT RESOLUTION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_peace()">Peace Building and Conflict Resolution</a></li></form>
+			<form id= "youthform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_youth()">The Youth and National Development</a></li></form>
+			<form id= "scienceform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_science()">Science and Technology</a></li></form>
+			<form id= "resourceform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_resource()">Resource Development and Utilization in Ghana</a></li></form>
+			<form id= "tipsform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="TIPS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_tips()">TIPS</li></form>
+	  </ul>
+  
+</div>
+ 
+ <div class="topics" id="level2" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel2()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+		<form id= "marriageform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_marriage()">The Institution of Marriage</li></form>
+		<form id= "obligationsform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_obligations()">Individual Obligations In The Family</li></form>
+		<form id= "parentingform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_parenting()">Responsible Parenting</li></form>
+		<form id= "socializationform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="SOCIALIZATION AND SOCIAL ENVIRONMENT" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_socialization()">Socialization and Our Social Environment</li></form>
+		<form id= "leadershipform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="LEADERSHIP AND FOLLOWERSHIP" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_leadership()">Leadership And Followership</li></form>
+		<form id= "constitutionform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="OUR CONSTITUTION, DEMOCRACY AND NATION BUILDING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_constitution()">Our Constitution, Democracy and Nation Building</li></form>
+		<form id= "roleform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_role()">The Role of Individual in Community Development</li></form>
+		<form id= "socioform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_socio()">Promoting Socio-Economic Development</li></form>
+		<form id= "suitableform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_suitable()">Suitable Development</li></form>
+		<form id= "physicalform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="OUR PHYSICAL ENVIRONMENT AND ENVIRONMENTAL CHALLENGES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_physical()">Our Physical Environment and Environmental Challenges</li></form>
+		<form id= "tipsform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="TIPS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_tips()">TIPS</li></form>
+  </ul>
+  
+</div>
+
+<div class="topics" id="level3" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel3()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+    <form id= "educationform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_education()">Education and Social Change</li></form>
+    <form id= "rightsform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="RIGHTS AND RESPONSIBILITIES OF AN INDIVIDUAL" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_rights()">Rights And Responsibilities of The Individual</li></form>
+    <form id= "ghanaform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_ghana()">Ghana and its International Community</li></form>
+    <form id= "populationform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_population()">Population Growth and Development</li></form>
+    <form id= "workform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_work()">Work and Entrepreneurship</li></form>
+	<form id= "tipsform" action='/tutorials' method='POST'><input name="subject" value="social" hidden /><input name="topic" value="TIPS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_tips()">TIPS</li></form>
+  </ul>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+	<script src="{{ url_for('static', filename='js/font_awesome.js') }}"></script>
+	<title>Alpha Prep | Prepare for your exams</title>
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.family.lobster.css')}}">
+	<script src="{{ url_for('static', filename = 'js/jquery-3.5.1.js')}}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup.css')}}">
+	<script type='text/javascript' src="{{ url_for('static', filename ='js/prototype.js')}}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<!-- HEADER-->
+<header>
+	<div class="logo">
+		<img src="{{ url_for('static', filename='images/alpha preps3.png') }}">
+	</div>
+	
+	
+	<div class="attributes">
+	<a href="#">Welcome Guest!</a>
+	<a href="/index">Home</a>
+	<div class="aabout">
+		<a href="#" class="about">About <i class="fa fa-caret-down"></i></a>
+		<div class="about-tab">
+			<a href="/about-dev">About Developers</a>
+			<a href="#">Documentation</a>
+			
+		</div>
+	</div>
+	<div class="ssubjects">
+		<a href="#" class="subjects">Misc. <i class="fa fa-caret-down"></i></a>
+		<div class="subjects-tab">
+			<a href="/bugs">Report Bug</a>
+			
+		</div>
+		</div>
+		<a href="/index"><button id="login-button"> Log In</button></a>
+		<a href="/signup" id="sign-box">Sign Up</a>
+	    
+	</div>
+</header>
+<br>
+<br>
+<br>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			<ul class=flashes>
+				{% for category, message in messages %}
+				  <li class="{{ category }}"><center>{{ message }}</center></li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+		{% block body %}{% endblock %}

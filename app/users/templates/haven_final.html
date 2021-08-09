@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Alpha Haven | ALPHA Prep</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/haven_final.css')}}">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    
+</head>
+
+<body>
+{% extends "prototype.html" %}
+{% block body %}
+
+    <div class="grid">
+        <div class="section1">
+            <div class="records">
+		
+				<h3> Welcome to Alpha Prep!</h3>
+				<p>These are your statistics based on how frequent you visit. <br>
+				  Keep coming back to take more tests and get awards!
+				</p> 
+				<div>
+
+					<div class="marks" >
+						<h1 class="orange">{{streak.last_login.strftime("%a %d")}}</h1>
+						<p style="font-weight: bold;">Last <br> Login</p>
+					</div>
+					<div class="marks" >
+						<h1 class="blue">{{streak.streak_points}}</h1>
+						<p style="font-weight: bold;">Streak <br> Score</p>
+					</div>
+					<div class="marks" >
+						<h1 class="green">{{streak.longest_streak}}</h1>
+						<p style="font-weight: bold;">Highest <br>Streak </p>
+					</div>
+				</div>
+			<br><br><br>
+			</div>
+			
+            <div class="test-tab">
+
+
+                <object data="{{ url_for('static', filename='images/blog.svg') }}" type=""></object>
+                <div class="test-tab-list">
+                    <h3>Hello, {{current_user.username}}</h3>
+                    <p>
+                        Our goal is to help make users as ready as possible to take the WASSCE
+                    </p>
+                    <p> Click the link below to go the "Dashboard" page and view your progress. </p>
+                    <div class="test-tab-mycourses">
+                        <br>
+                        <a href="/dashboard"><button>Go to Dashboard</button></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section2">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{{ form.hidden_tag() }}
+				<div class="info">
+					<img class="profilepic" src="{{image_file}}" alt="">
+				</div>
+			
+				<div class="details">
+					<h5>Profile: {{ form.picture(class='form-control-file') }}
+					</h5>
+					{% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+				
+					
+						{% if form.username.errors %}
+						   <h4 class="fw">{{form.username(class="form-control form-control-lg")}}</h4>
+							<div>
+								{% for error in form.username.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							<h4>{{ form.username(class="form-control form-control-lg") }}</h4>
+							</h4>
+						{% endif %}
+						
+						<h5><input type="submit" value="Submit Changes"></input></h5>
+
+					<h4>{{current_user.course}}</h4>
+
+					<p>
+						<i>{{current_user.email}}</i>
+					</p>
+					
+			</form>
+					<form action="" method="POST">
+						<button type="submit" value="default" name="default">Remove Picture </button> 
+					</form>
+					
+				
+				</div>
+				<div class="logout">
+				<a href="/logout"><button type="submit">Logout</button></a><br>
+				</div>
+        </div>
+
+    </div>
+	
+					
+
+
+    <div id="page-container">
+
+        <div class="content-wrap">
+
+        </div>
+
+
+        <!--<footer class="footer">
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Contact Us</a> | </li>
+                        <li> | <a href="#"> Support</a> |</li>
+                        <li> |<a href="#"> Terms of Use</a> </li>
+                    </ul>
+                </nav>
+
+                <p class="emblem"><a>&copy; <a style="color: red;">A</a><a style="color: yellow;">L</a><a style="color: black;">P</a><a style="color: green;">H</a><a style="color: red;">A</a> <a>PREP</a></a>
+                </p>
+            </div>
+        </footer>-->
+    </div>
+</body>
+{% endblock %}
+</html>

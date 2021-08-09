@@ -1,0 +1,880 @@
+{% if subject == 'english' %}
+	{% extends "english.html" %}
+{% else %}
+	{% extends "others.html" %}
+{% endif %}
+
+{% block content %}
+
+<head>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  font-size: 23px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 30px;
+}
+
+.modal-content button, .modal-content #submit{
+background: transparent;
+width: 70px;
+height: 25px;
+font-weight: bold;
+ border: 1px solid black;
+
+}
+
+.modal-content button:hover, .modal-content #submit:hover{
+ background-color: #8FBFC2;
+ cursor: pointer;
+}
+
+.pagenumbers button, .top-pagenumbers button{
+border-radius: 50px;
+background: transparent;
+border:2px solid black;
+background-color: #F2EBF9;
+font-weight: bold;
+}
+
+.pagenumbers button:hover, .top-pagenumbers button:hover{
+cursor: pointer;
+background-color: #A4ACF6;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#page1, #page2, #page3, #page4, #page5, #page6{
+	border-radius: 10px;
+}
+
+/* the timer css */
+body{
+ margin:0;
+   padding: 0;
+   text-align: right;
+   font-family: sans-serif;
+   font-weight: 100;
+   background-color: #E7F3B0;
+
+}
+
+.header{
+background-color: #660066;
+margin-top: 0px;
+
+}
+
+.intro {
+	text-align: center;
+	margin-top: -20px;
+}
+
+.header img{
+	margin-left: 10px;
+}
+
+.intro-text{
+	text-align: center;
+}
+
+h1{
+color: #396;
+font-weight: 100;
+font-size: 20px;
+margin: 30px 0px 20px;
+}
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 15px;
+	border: 2px solid black;
+	border-radius: 50px;
+	padding: 10px 10px 10px 10px;
+	background-color: white;
+}
+#clockdiv > div{
+	padding: 8px;
+	border-radius: 30px;
+	background: #7F7B7B;
+	display: inline-block;
+}
+#clockdiv div > span{
+	padding: 8px;
+	border-radius: 20px;
+	background: black;
+	display: inline-block;
+
+}
+smalltext{
+	padding-top: 5px;
+	font-size: 8px;
+}
+
+.clock{
+	border: 5px solid black;
+	background
+}
+
+.exit-button{
+	margin-left: 10px;
+	margin-top: -15px;
+	margin-bottom: 10px
+}
+
+.exit-button button{
+	border-radius: 20px
+}
+
+.start-button{
+	margin-top: 0px;
+    
+}
+
+.start-button button{
+	border-radius: 20px;
+	font-weight: bold;
+	background: transparent;
+	background-color: white;
+	border-radius: 20px;
+	width: 70px;
+	height: 25px;
+    cursor: pointer;
+}
+
+.start-button button:hover{
+background-color:#B7C1D2; 
+color:#F0DEFA;
+
+}
+
+.bottom-menu #next{
+	background: transparent;
+	margin-top:5px;
+	border-radius: 10px;
+	font-weight: bold;
+	border: double #660066;
+	width: 60px;
+	height: 25px;
+}
+
+.bottom-menu #next:hover{
+	cursor: pointer;
+	transform: scale(1.02);
+	background-color: #787575;
+	color: white;
+}
+
+
+.bottom-menu #prev{
+	background: transparent;
+	margin-top: -25px;
+	margin-left: 70px;
+	border-radius: 10px;
+	font-weight: bold;
+	border: double #660066;
+	width: 60px;
+	height: 25px;
+}
+
+.bottom-menu #prev:hover{
+	cursor: pointer;
+	transform: scale(1.02);
+	background-color: #787575;
+	color: white;
+}
+
+.bottom-menu #submit{
+	margin-top:8px;
+	border: 2px solid red;
+	background: transparent;
+	border-radius: 20px;
+	font-weight: bold;
+	height: 25px;
+    color: black;
+}
+
+.bottom-menu #submit:hover{
+	cursor: pointer;
+	background-color: yellow;
+	color: #9FCBCB;
+	border: 2px solid black;
+	transform: scale(1.03);
+}
+	
+.bottom-menu #submit1{
+	margin-top:8px;
+	border: 2px solid red;
+	background: transparent;
+	border-radius: 20px;
+	font-weight: bold;
+	height: 25px;
+    color: black;
+}
+
+.bottom-menu #submit1:hover{
+	cursor: pointer;
+	background-color: yellow;
+	color: #9FCBCB;
+	border: 2px solid black;
+	transform: scale(1.03);
+}
+
+
+</style>
+
+<script>
+	window.onbeforeunload = function() { return "Your work will be lost."; };
+	
+	document.onkeydown = function(){
+		switch (event.keyCode){
+        case 116 : // disabling F5 button
+            event.returnValue = false;
+            event.keyCode = 0;
+			window.alert('You can\'t do that!')
+            return false;
+		}
+	}
+	var i = 1;
+	var pages = "page"
+	function nexxx(){
+		i = i + 1;
+		var j = i;
+		var next_page = document.getElementById(pages + i)
+		var prev_page = document.getElementById(pages + (i-1))
+		var next = document.getElementById("next")
+		var prev = document.getElementById("prev")
+		var submit = document.getElementById("submit")
+		
+		{% if subject == 'english'%}
+			if(j == 6){
+				next.style.display = "none";
+				submit.style.display = "block";
+			}
+			else{
+				submit.style.display = "none";
+			}
+		{% else %}
+			if(j == 2){
+				next.style.display = "none";
+				submit.style.display = "block";
+			}
+			else{
+				submit.style.display = "none";
+			}
+		
+		{% endif %}
+		
+		if( j != 1){
+			prev.style.display = "block";
+		}
+		else{
+			prev.style.display = "none";
+		}
+		
+		next_page.style.display = "block";
+		prev_page.style.display = "none";
+	}
+	
+	function prevvv(){
+		i = i - 1;
+		var j = i;
+		var next_page = document.getElementById(pages + (i+1))
+		var prev_page = document.getElementById(pages + i)
+		var next = document.getElementById("next")
+		var prev = document.getElementById("prev")
+		var submit = document.getElementById("submit")
+		
+		{% if subject == 'english' %}
+			if(j !=6 ){
+				next.style.display = "block";
+			}
+			else {
+				next.style.display = "none";
+			}
+			
+			if(j == 6){
+				submit.style.display = "block";
+			}
+			else{
+				submit.style.display = "none";
+			}
+		
+		{% else %}
+		
+			if(j !=2 ){
+				next.style.display = "block";
+			}
+			else {
+				next.style.display = "none";
+			}
+			
+			if(j == 2){
+				submit.style.display = "block";
+			}
+			else{
+				submit.style.display = "none";
+			}
+		{% endif %}
+		
+		if(j == 1){
+			prev.style.display = "none";
+		}
+		
+		
+		next_page.style.display = "none";
+		prev_page.style.display = "block";
+	}
+	
+
+
+		function showModal(){
+		var modal = document.getElementById("myModal");
+		modal.style.display = "block";
+	}
+	
+	function hideModal(){
+		var modal = document.getElementById("myModal");
+		modal.style.display = "none";
+		
+	}
+	function confirmation() {
+	var answer = confirm("Are you sure? Progress won't be saved!")
+	if (answer){
+		{% if current_user.is_authenticated %}
+			window.location = "/dashboard";
+		{% else %}
+			window.location = "/index";
+		{% endif %}
+	}
+	else{
+		
+	}
+	}
+	
+	function page1x(){
+		i = 1;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "block";
+		y.style.display = "none";
+		z.style.display = "none";
+		a.style.display = "none";
+		b.style.display ="none";
+		c.style.display = "none";
+		prev.style.display = "none";
+		next.style.display = "block";
+		submit.style.display = "none";
+		
+
+	}
+	function page2x(){
+		i = 2;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "none";
+		y.style.display = "block";
+		z.style.display = "none";
+		a.style.display = "none";
+		b.style.display ="none";
+		c.style.display = "none";
+		prev.style.display = "block";
+		next.style.display = "block";
+		submit.style.display = "none";
+		
+	}
+	
+	function page3x(){
+		i = 3;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "none";
+		y.style.display = "none";
+		z.style.display = "block";
+		a.style.display = "none";
+		b.style.display ="none";
+		c.style.display = "none";
+		prev.style.display = "block";
+		next.style.display = "block";
+		submit.style.display = "none";
+		
+	}
+	
+	function page4x(){
+		i = 4;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "none";
+		y.style.display = "none";
+		z.style.display = "none";
+		a.style.display = "block";
+		b.style.display ="none";
+		c.style.display = "none";
+		prev.style.display = "block";
+		next.style.display = "block";
+		submit.style.display = "none";
+		
+		
+	}
+	
+	function page5x(){
+		i = 5;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "none";
+		y.style.display = "none";
+		z.style.display = "none";
+		a.style.display = "none";
+		b.style.display ="block";
+		c.style.display = "none";
+		prev.style.display = "block";
+		next.style.display = "block";
+		submit.style.display = "none";
+	}
+	
+	function page6x(){
+		i = 6;
+		var x = document.getElementById("page1")
+		var y = document.getElementById("page2")
+		var z = document.getElementById("page3")
+		var a = document.getElementById("page4")
+		var b = document.getElementById("page5")
+		var c = document.getElementById("page6")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		var submit = document.getElementById("submit")
+		
+		
+		
+		x.style.display = "none";
+		y.style.display = "none";
+		z.style.display = "none";
+		a.style.display = "none";
+		b.style.display ="none";
+		c.style.display = "block";
+		prev.style.display = "block";
+		next.style.display = "none";
+		submit.style.display = "block";
+		
+	}
+	
+	{% if subject == 'english' or subject == "inter" %} //update to accommodate for different levels
+		var c = 1800; // time for english or integrated science 30 minutes
+	
+	{% elif subject == "social" %}
+		var c = 1500; //time for social 25 minutes
+	
+	{% else %} // time for math 35 minutes
+		var c = 2100;
+	{% endif %}
+	
+	
+	var x = setInterval(function() {
+    var hours = Math.floor(c / 3600);
+    var minutes = Math.floor((c - (hours * 3600)) / 60);
+    var seconds = c - (hours * 3600) - (minutes * 60);
+	 
+    seconds = Math.round(seconds * 100) / 100 ;
+	document.getElementById("hour").innerHTML = hours;
+	document.getElementById("minute").innerHTML = minutes;
+	document.getElementById("second").innerHTML = seconds;
+	c--;
+	
+	if (c == 0) {
+		clearInterval(x);
+		document.getElementById("demo").innerHTML = "TIME UP";
+		document.getElementById("hour").innerHTML ='0';
+		document.getElementById("minute").innerHTML ='0' ;
+		document.getElementById("second").innerHTML = '0'; 
+		document.createElement("form").submit.call(document.getElementById("main")); //did it like this because the normal submit didn't work because of the submit btn
+		}
+
+
+	} ,1000);
+	
+	function myExit() {
+		if (confirm("Are You Sure? Progress will not be saved!")) {
+			window.location.href = "/question";
+		}
+		else {
+			window.location.href = "#"
+		}
+	
+	}
+	
+
+	
+</script>
+
+</head>
+
+
+
+	<blockquote>
+			<table border="1" bgcolor="#000000" cellpadding="3" width="90%"><!-- brings the outer lining, I think you should keep as is but style it better-->
+			<tbody><tr><td bgcolor="#FFFFFF">
+			{% if subject == 'english' %}
+				<form action='/resultspage' method='POST' align="right|left" id = 'main'>
+				<center><div class="top-pagenumbers"><button type="button" onclick="page1x()">1</button>  <button type="button" onclick="page2x()">2</button> <button type="button" onclick="page3x()">3</button>
+				<button type="button" onclick="page4x()">4</button> <button type="button" onclick="page5x()">5</button> <button type="button" onclick="page6x()">6</button></div></center>
+				<fieldset id = 'page1'> <!--The fieldset brings the inner lining, you can change it to div and design inside to look nicer -->
+					
+					<div align="center"> <b>Alpha Prep App - English Test | Page 1</b> </div>
+					<div align="center"><br> In this section, choose the word or group of words that best represent the <b><i>opposite</i></b> the word in bracket </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol>
+						{% for i in q %}
+							<!-- try and colour background of each question like vclass, e no be neccessary mmom<div style = "background-color: grey"> -->
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in o[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+							<!--</div> -->
+							<br>
+						{% endfor %}
+						
+					</ol>
+					
+					</blockquote>
+					<p align="center">1/6</p>
+				</fieldset>
+				
+				<fieldset id = 'page2' style ="display:none;">
+					<div align="center"> <b>Alpha Prep App - English Test | Page 2</b> </div>
+					<div align="center"><br> In this section, choose the word or group of words that <b><i>best completes</i></b> the setences </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start='6'>
+						{% for i in q2 %}
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in p[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+					</ol>
+					
+					</blockquote>
+					<p align="center">2/6</p>
+				</fieldset>	
+				
+				<fieldset id = 'page3' style ="display:none;">
+					<div align="center"> <b>Alpha Prep App - English Test | Page 3</b> </div>
+					<div align="center"><br> In this section, choose the word or group of words that <b><i>best fills</i></b> in the blanks. </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="11">
+						{{ t[0][0] }}
+						<br>
+						<br>
+						{% for i in pp %}
+							<li type = "1"></li>
+							{% for j in pp[i] %} 
+								{% for n in j %}
+									<input type="radio" value='{{n}}' name='{{i}}'>{{n}}<br>
+								{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+					</ol>
+					</blockquote>
+					<p align="center">3/6</p>
+				</fieldset>	
+				
+				<fieldset id = 'page4' style ="display:none;">
+					<div align="center"> <b>Alpha Prep App - English Test | Page 4</b> </div>
+					<div align="center"><br> In this section, choose the word or group of words that  <b><i>are nearest in meaning </i></b> to the word in bracket </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="21">
+						{% for i in questions_shuffled4 %}
+							
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in questions4[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+						
+					</ol>
+					
+					</blockquote>
+					<p align="center">4/6</p>
+				</fieldset>	
+				
+				<fieldset id = 'page5' style ="display:none;">
+					<div align="center"> <b>Alpha Prep App - English Test | Page 5</b> </div>
+					<div align="center"><br> In this section, choose the <b><i>best intepretation</i></b> ofthe sentences </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="26">
+						{% for i in questions_shuffled5 %}
+							
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in questions5[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+						
+					</ol>
+						<p align="center">5/6</p>
+					</blockquote>
+					
+				</fieldset>	
+				
+				<fieldset id = 'page6' style ="display:none;">
+					<div align="center"> <b>Alpha Prep App - English Test | Page 6</b> </div>
+					<div align="center"><br> <b> General Knowledge in Literature </b> - Select the correct answer </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="31">
+						{% for i in questions_shuffled6 %}
+							
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in questions6[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+						
+					</ol>
+					
+					</blockquote>
+					<p align="center">6/6</p>
+				</fieldset>	
+				<div class="bottom-menu">
+						<!-- try and make the buttons appear side by side, because well they appear above/below each other, it dey bore tsw tenkz-->
+						
+						<button id='next' type="button" class ='ok' onclick = "nexxx()"> Next </button>
+						<input id="submit" class="ok" type="button" value="Submit" onclick="showModal()" style="display:none;" />
+						<button id='prev' type="button" class ='ok' style = "display: none;" onclick = "prevvv()"> Back </button>
+				</div>
+				<!--Haq haq haq A mod -->
+				<div id="myModal" class="modal" style= "display: none;">
+					<div class="modal-content">
+					<span class="close" onclick="hideModal()">&times;</span>
+					<p>Are you sure you want to submit?</p>
+					<center><input id="submit" class="ok" type="submit" value="Yes"  /> <button type = "button" onclick ="hideModal()"> No </button></center>
+					</div>
+				</div>
+				<center><div class="pagenumbers"><button type="button" onclick="page1x()">1</button>  <button type="button" onclick="page2x()">2</button> <button type="button" onclick="page3x()">3</button>
+				<button type="button" onclick="page4x()">4</button> <button type="button" onclick="page5x()">5</button> <button type="button" onclick="page6x()">6</button></div></center>
+				</form>
+			{% endif %}
+			
+			
+			{% if subject == 'social' or subject =='math' or subject =='inter' %}
+		
+				
+			<form action='/resultspage' method='POST' align="right|left">
+			<blockquote>
+					<fieldset id = 'page1'>
+					{% if subject == 'social' %}
+						<div align="center"> <b>Alpha Prep App - Social Studies | Page 1</b> </div>
+					{% elif subject =='math' %}
+						<div align="center"> <b>Alpha Prep App - Mathematics | Page 1</b> </div>
+					{% elif subject == 'inter'%}
+						<div align="center"> <b>Alpha Prep App - Integrated Science | Page 1</b> </div>
+					{%endif%}
+					<div align="center"><br> Answer <b><i>all</i></b> questions </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="1">
+						{% for i in p1 %}
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in o[i] %} 
+								
+									{% for z in j | filter_shuffle %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+					</ol>
+					
+					</blockquote>
+					
+					</fieldset>
+					
+					<fieldset id = 'page2' style="display: none;">
+					{% if subject == 'social' %}
+						<div align="center"> <b>Alpha Prep App - Social Studies | Page 2</b> </div>
+					{% elif subject =='math' %}
+						<div align="center"> <b>Alpha Prep App - Mathematics | Page 2</b> </div>
+					{% elif subject == 'inter' %}
+						<div align="center"> <b>Alpha Prep App - Integrated Science | Page 2</b> </div>
+					{%endif%}
+					<div align="center"><br> Answer <b><i>all</i></b> questions </div>
+					<br>
+					<br>
+					<blockquote>
+					<ol start="11">
+						{% for i in p2 %}
+							<li type = "1"> {{i|safe}}  </li>
+							{% for j in o[i] %} 
+								
+									{% for z in j | filter_shuffle  %} {# to shuffle possible answers #}
+										<input type="radio" value='{{z}}' name='{{i}}'>{{z}}<br>
+									{% endfor %}
+							{% endfor %}
+							<br>
+						{% endfor %}
+					</ol>
+					
+					</blockquote>
+					
+					</fieldset>
+					<div id="myModal" class="modal" style= "display: none;">
+						<div class="modal-content">
+							<span class="close" onclick="hideModal()">&times;</span>
+							<p>Are you sure you want to submit?</p>
+							<center><input id="submit" class="ok" type="submit" value="Yes" style="display:block;" /> <button type = "button" onclick ="hideModal()"> No </button></center>
+						</div>
+					</div>
+					<div class="bottom-menu">
+						<!-- try and make the buttons appear side by side, because well they appear above/below each other, it dey bore tsw tenkz-->
+						<button id='next' type="button" class ='ok' onclick = "nexxx()"> Next </button>
+						<input id="submit" class="ok" type="button" value="Submit" onclick="showModal()" style="display:block;" />
+						<button id='prev' type="button" class ='ok' style = "display: none;" onclick = "prevvv()"> Back </button>
+					</div>
+				</form>
+				
+			{% endif %}
+			</tr>
+			</tbody></table>
+			</blockquote>
+		  </div>
+		</td>
+	  </tr>
+	  <tr> 
+		<td > 
+		  
+			 
+			  <td class="start-button">
+				<div align="center" class="exit-button"><button type="button" class="btn btn-warning#" onclick="confirmation()">Exit</button></div>
+			  </td>
+			
+		</td>
+	  </tr>
+	</tbody></table>
+
+
+	</body></html>
+
+{% endblock content %}
+

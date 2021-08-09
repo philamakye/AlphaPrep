@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/about_dev.css')}}">
+</head>
+<title> About - Developers </title>
+
+<body>
+
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+
+{% extends "index_layout.html" %}
+{% block body %}
+
+    <main>
+        <div id="headerImg">
+            <div id="headerText">
+                <h2>
+                    About Our Developers
+                </h2>
+                <p>Meet our designers and team of developers.</p>
+            </div>
+        </div>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/AVJ.jpg') }}" class="devImg4">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Acheampong Joseph Junior
+                    </h3>
+                    <p>
+                        My name is Joseph Acheampong Junior At the time of this project, I am a third year student in KNUST in the Department of Computer Engineering.
+                        <br>
+                        <br> I worked as the Deputy Project Manager and head of back end developers on this project.
+                        <br>I do enjoy a list of other hobbies such as dancing, sports, gaming etc. It was a delight making this app.
+                        <br>It was geared mainly towards shs students and their need to prepare for exams.
+                        <br>
+                        <br> I hope you enjoy using Alpha Prep and hope that it helps you immensely.
+                        <br> Thanks.
+                        <br> You can get in touch with me via email at joseph3241@gmail.com <br> Twitter: @joe_a_jnr <br> LinkedIn: Joseph Acheampong Jnr
+                        <br>
+                        <br>
+                        <i> - Head of Backend Development</i>
+
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Kweku-Background.jpg') }}" class="devImg0">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Asamoah Kweku Duah Owusu
+                    </h3>
+                    <p>
+                        My name is Asamoah Kweku Duah Owusu. A third year student in KNUST in the Department of Computer Engineering.
+                        <br>During the development of this project, I worked as a Front end developer on this project.
+                        <br>I enjoyed every bit of adventure and challenges that I encountered whiles developing this project.
+                        <br>
+                        <br> I must say it was a delight working my team.
+                        <br>It pushed me to learn new skills to be able to solve problems and also helped me to get a better understanding of certain concepts.
+                        <br>
+                        <br> I hope Alpha Prep helps you to achieve the needed knowledge to ace your exams.
+                        <br> Thanks.
+                        <br> Email: asamoahduah101@gmail.com
+                        <br> Twitter: @kwekuduahhh
+                        <br>
+                        <br>
+                        <i> -FrontEnd Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Darko Daniel.jpg') }}" class="devImg0">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Darko Daniel
+                    </h3>
+                    <p>
+                        My name is Daniel Darko, a third year computer engineering student at the time of creating the app in KNUST.
+                        <br>
+                        <br>I worked as the project Manager of Alpha and also a backend developer on this project.
+                        <br> It is a great privileged to be a part of the success story of Alpha and a wonderful experience building this app.
+                        <br>
+                        <br>The aim of this building this app is to help students especially those in Senior high School prepare towards their exit examination. My team and I hope this app helps and we wish all final year student a success in their exit
+                        examination.
+                        <br> Thank you
+                        <br>
+                        <br> Get in touch with me via email at danieldarko2010@gmail.com and let's talk business
+                        <br>
+                        <br>
+                        <i> -Project Manager</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/jehu(2).jpg') }}" class="devImg1">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        MANTE Jehu Stephenson Adu
+                    </h3>
+                    <p>
+                        My passion for computers led me to pursue the course, Computer Engineering. As a third year student in KNUST, I worked as a Front end Developer on the Alpha prep app project.
+                        <br>
+                        <br>Being a part of this transformational process of developing the Alpha prep app has indeed been amazing.
+                        <br>The app is purposely designed to assist most especially Senior high School Students prepare towards their final examination.
+                        <br>
+                        <br>I am certain that this app is totally reliable as my team and I spared no detail in it's development. Our Best of luck to our final year students in their final examination.
+                        <br>
+                        <br>Kindly contact me via my email at jehustevenson@gmail.com for further enquiries.
+                        <br>
+                        <br>
+                        <i> -FrontEnd Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+		<section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Manasseh.jpg') }}" class="devImg1">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        MANASSEH Daniel
+                    </h3>
+                    <p>
+                        Being an individual from this Alpha Tech Team gave me an enormous presentation to a ton of captivating stuff identifying with the field of web application development.
+                        <br>
+                        <br>I feel significantly proud to have been a piece of the body that got this application into being.
+                        <br>I worked alongside other splendid partners as a backend developer and I am cheerful that this application would fill its intended purpose for which it was made.
+                        <br>DANIEL MANASSEH heyitzwest@gmail.com
+                        <br>
+                        <br><i> -Backend Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Amartey Bright.jpg') }}" class="devImg1">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Amartey Bright
+                    </h3>
+                    <p>
+                        I'm Joseph Bright Amartey, a third year computer engineering student in KNUST during the creation of the app.
+                        <br>I worked as a backend developer on this project which exposed me to a lot of knowledge about web development and software development as a whole.
+                        <br>
+                        <br>I must say I am really privileged to be part of the alpha team and to work with this amazing group of developers on the team.
+                        <br>
+                        <br>Really looking forward to your feedback about Alpha Prep.
+                        <br>Thank you.
+                        <br>Contact me via
+                        <br>Email: amarteybright12@gmail.com
+                        <br>
+                        <br>
+                        <i> -Backend Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+		<section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/allen2.jpg') }}" class="devImg1">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Aryee Nii Allen
+                    </h3>
+                    <p>
+                        I am Allen Nii Ayitey Aryee, a third year computer engineering student of KNUST involved in creating  the app .
+                        <br> I worked as a member of backend developers team on this project. 
+                        <br>I must say I am really privileged to be part of the alpha team and to work with this amazing group of developers on the team.
+                        <br>
+                        <br>I had a great experience to be able to work and communicate together as a group in bringing about this app. I’m happy we have been able to complete this successfully with the aim of aiding both senior and junior high school students to make their learning easier. 
+                        <br>
+						<br>Alpha team hopes you get the very best out of Prep App in terms of your studies.
+						<br>Thank you.
+                        <br>Contact me:
+                        <br>Email: allenniia@yahoo.com
+                        <br>Linked In: Allen Aryee
+                        <br>
+						<br>
+                        <i> -Backend Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Gerald Ofori.jpg') }}" class="devImg1">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Ofori Gerald
+                    </h3>
+                    <p>
+                        My name is Gerald Ofori, a third year student computer engineering student in KNUST at the time of creating the app.
+                        <br>During the development of this project, I worked as the head of Frontend developers on this project.
+                        <br>It was a fun and thrilling experience working on this project with my team.
+                        <br>I am very glad we finished this project which is aimed at helping students in senior high schools get prepared for their final exams.
+                        <br> 
+                        <br>My team and I hope that you get the very best out of Alpha Prep and wish you all the best in your final exams.
+                        <br>Thank You.
+                        <br>
+                        <br> Get in touch with me;
+                        <br> Email: oforige@gmail.com
+                        <br> Twitter: @GeraldOforiii
+                        <br> LinkedIn: Ofori Gerald Bosu
+                        <br><br>
+                        <i> -Head of FrontEnd Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Amakye.jpg') }}" class="devImg3">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Amakye Oduro Philip
+                    </h3>
+                    <p>
+                        My name is Philip Oduro Amakye. A level 300 BSc Computer Engineering student. I worked on the frontend and was a part Software requirement team for this project.
+                        <br>
+                        <br>This particular journey has been a memorable one with many highs and lows but in the end we overcame to make this project a success.
+                        <br>Thank You.
+                        <br>
+                        <br>You can reach me on amakyephil@live.com
+                        <br>
+                        <br><i>- Frontend Development</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="devimgBox">
+                <img src="{{ url_for('main.static', filename='images/Adom.jpg') }}" class="devImg3">
+            </div>
+            <div>
+                <div id="devTextBox">
+                    <h3>
+                        Adom Fredrick
+                    </h3>
+                    <p>
+                        My name is Adom Frederick, currently pursuing computer Engineering and in my third year of study at the time Alpha Prep was created.
+                        <br>
+                        <br>I worked as the Business process analyst for Alpha, and also a documented the project.
+                        <br>
+                        <br>Thank you.
+                        <br>
+                        <br>You can get intouch with me via: adomfrederick100@gmail.com
+                        <br>
+                        <br><i>- Documentation</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+    
+
+</body>
+{% endblock body %}
+</html>

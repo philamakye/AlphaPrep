@@ -1,0 +1,21 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+{% block body %}
+<center>
+	<title>Internal Server Error </title>
+	<h1>Oops! </h1>
+	<p> Something went wrong somewhere.</p>
+	<p> Sorry please try later </p>
+	<p><a href=" {{url_for('users.dashboard') }}"> Go somewhere nice </a></p>
+</center>
+{% endblock body %}
+
+
+
+
+<!-- using the inheritance, the code extends from the layout.html  -->

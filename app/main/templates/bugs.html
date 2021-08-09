@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Report a bug | ALPHA Prep</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('main.static', filename='css/reportbugs.css')}}">
+</head>
+
+
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+
+{% extends "index_layout.html" %}
+
+{% block body %}
+<body>
+
+
+<article>
+<h1>Report a bug!</h1>
+<p>We want to fix your bugs! But many bugs don't include required information. So we are focusing our limited resources on bugs that have complete reports. To improve the chances of your bug being fixed, please vividly describe what the bug is about and where it can also be located in the dialogue box provided below.
+<div class="inputtxt">
+    <form action="/bugs" method="POST">
+        <!--<label for="fname">First Name</label>-->
+        <textarea rows="5" name ="report" id="report">Input text here!</textarea>
+        <input type="submit" value="Submit">
+    </form>    
+</div>
+</p>
+
+
+
+
+</article>
+
+
+{% endblock body %}
+</body>
+</html>

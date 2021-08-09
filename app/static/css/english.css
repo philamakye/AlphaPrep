@@ -1,0 +1,286 @@
+ 
+.grid{
+    
+    display: grid;
+    grid-template-areas: "one two two two"
+                         "one two two two";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 5px; 
+     margin-bottom: 0% !important;
+   }
+
+.section1{
+    border-right: 2px solid #691481;
+    grid-area: one;
+    background-color: #F5F1F1;
+    margin-bottom: -500px;
+}
+
+.section2{
+    border-left: 2px solid #691481;
+    grid-area: two;
+    background-color: rgb(238, 234, 177);
+     margin-bottom: -500px;
+}
+
+.section1 ul {
+    margin-top: 0px;
+margin-left: -40px;
+}
+
+.section1 ul li{
+    list-style: none;
+}
+
+.section1 ul li a{
+    
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+    color: black;
+}
+
+.section1 ul li a:hover{
+    background-color: #A8FAC7;
+}
+.section1 .fas{
+    color: #617E48;
+}
+
+.section1 .subject-tab{
+    background-color: #3FD9AF;
+}
+
+.section1 .subject-tab:hover{
+     background-color: #3FD9AF;
+}
+
+.section2 .head h2 {
+    text-align: center;
+    margin-top: 0px;
+
+}
+
+.topics{
+    display: grid;
+    grid-template-areas: "lexis lexis Essay Essay"
+                         "lexis lexis Essay Essay"
+                         "story story comprehension comprehension"
+                         "summary summary literature literature";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+
+ }
+
+.topics ul li{
+    list-style: none;
+}  
+
+.topics ul li a{
+    text-decoration: none;
+    color: black; 
+}
+
+.lexis{
+    text-align: center;
+    grid-area: lexis;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    margin-left: 10px;
+}
+
+.lexis-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.lexis li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    transition: transform .2s;
+}
+
+.lexis li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+}
+
+.essay{
+    text-align: center;
+    grid-area: Essay;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    margin-right: 10px;
+}
+
+.essay-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.essay li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    transition: transform .2s;
+}
+
+.essay li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+}
+
+
+.story{
+    grid-area: story;
+    text-align: center;
+background-color: white;
+    border-radius: 60px;
+    margin-left: 10px;
+}
+
+.story-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.story li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    border-radius: 0px 0px 30px 30px;
+    transition: transform .2s;
+}
+
+.story li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+}
+
+
+.comprehension{
+    grid-area: comprehension;
+      text-align: center;
+background-color: white;
+    border-radius: 60px;
+    margin-left: 10px;
+     margin-right: 10px;
+}
+
+.comprehension-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.comprehension li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    border-radius: 0px 0px 30px 30px;
+    transition: transform .2s;
+}
+
+.comprehension li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+    
+}
+.summary{
+    grid-area: summary;
+     text-align: center;
+background-color: white;
+    border-radius: 60px;
+    margin-left: 10px;
+
+}
+
+.summary-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.summary li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    border-radius: 0px 0px 30px 30px;
+    transition: transform .2s;
+}
+
+.summary li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+}
+
+
+
+
+.literature{
+    grid-area: literature;
+     margin-right: 10px;
+     text-align: center;
+background-color: white;
+    border-radius: 60px;
+    margin-left: 10px;
+}
+
+.literature-head{
+font-weight: bold;
+font-size: 20px;
+background-color: #D3D4D4;
+display: block;
+margin-left: -40px;
+border-radius: 30px 30px 0px 0px;
+}
+
+.literature li a{
+    background-color: #EEF2F4;
+    margin-left: -40px;
+    display: block;
+    margin-top: 2px;
+    border-radius: 0px 0px 30px 30px;
+    transition: transform .2s;
+}
+
+.literature li a:hover{
+    background-color: #7CAAC8;
+    transform: scale(1.01)
+}
+
+form {
+	display: inline;
+	}

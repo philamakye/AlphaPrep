@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>Alpha Prep - {{ title }} </title>
+	{% else %}
+		<title> Alpha Prep </title>
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/prototype.css')}}">
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css')}}">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="{{ url_for('static', filename = 'js/jquery-3.5.1.js')}}"></script>
+	<script src="{{ url_for('static', filename = 'js/font_awesome.js')}}"></script>
+	<script src="{{ url_for('static', filename = 'js/prototype.js')}}"></script>
+
+<script>
+	function submitform(){
+
+		document.getElementById('form').submit();
+	}
+	
+	function submitform1(){
+
+		document.getElementById('form1').submit();
+	}
+	function submitform2(){
+
+		document.getElementById('form2').submit();
+	}
+</script>
+</head>
+
+<body>
+<header>
+  <SECTION>
+ <nav class='resp'>
+        <div class="logoName">
+            <img src="{{ url_for('static', filename='images/alpha preps3.png') }}">
+            <!--<h1>
+                <h3 style="color: red;">A</h3>
+                <h3 style="color: yellow;">L</h3>
+                <h3 style="color:black; ">P</h3>
+                <h3 style="color: green;">H</h3>
+                <h3 style="color: red;">A</h3>
+                <h3 class="prep" style="color: white;">PREP</h3>
+            </h1>-->
+        </div>
+
+        <ul class='resp'>
+		{% if current_user.confirmed %}
+			
+				<li>
+					<a href="/haven">Home</a>
+				</li>
+				<li class="ssubjects">
+					<a href='#'>Take Test <i class="fa fa-caret-down"></i></a>
+					<div class="subjects-tab">
+						<form id= "form" action='/TestLanding' method='POST'><a style="cursor: pointer;" onclick="javascript: submitform()">Integrated Science</a><input name="subject" value = "inter" hidden /></form>
+						<form id= "form1" action='/TestLanding' method='POST'><a style="cursor: pointer;" onclick = "javascript: submitform1()" >Core Mathematics</a><input name="subject" value = "math" hidden /></form>
+						<form id= "form2" action='/TestLanding' method='POST'><a style="cursor: pointer;" onclick = "javascript: submitform2()">Social Studies</a><input name="subject" value = "social" hidden /></form>
+						<a href="/english">English</a>
+					   
+					</div>
+				</li>
+				<li>
+					<a href="/tutorialslanding"> Tutorials </a>
+				</li>
+				<li>
+					<a href="/dashboard">Dashboard</a>
+				</li>
+				<li class="aabout">
+					<a href='#'>About <i class="fa fa-caret-down"></i></a>
+					<div class="about-tab">
+						<a href="/about-dev">About Developers</a>
+						<a href="#">Documentation</a>
+					</div>
+					
+				</li>
+				<li class="ssubjects">
+					<a href='#'>Misc. <i class="fa fa-caret-down"></i></a>
+					<div class="subjects-tab">
+						<a href="/bugs">Report Bug</a>
+					</div>
+				</li>
+				<li>
+					<div class="panel">
+						<h3 href="#"><a><i class="fas fa-bell"></i></a></h3>
+						
+					</div>
+				</li>
+			
+				
+		{% elif current_user.is_anonymous %}	
+			<li>
+                <a href="/index">Home</a>
+            </li>
+			<li class="aabout">
+                <a href='#'>About <i class="fa fa-caret-down"></i></a>
+                <div class="about-tab">
+                    <a href="/about-dev">About Developers</a>
+                    <a href="#">Documentation</a>
+                    
+                </div>
+				
+            </li>
+			<li class="ssubjects">
+					<a href='#'>Misc. <i class="fa fa-caret-down"></i></a>
+					<div class="subjects-tab">
+						<a href="/bugs">Report Bug</a>
+					</div>
+				</li>
+			</div>
+			
+		{% else %}
+			<li>
+                <a href="/index">Home</a>
+            </li>
+			<li class="aabout">
+                <a href='#'>About <i class="fa fa-caret-down"></i></a>
+                <div class="about-tab">
+                    <a href="/about-dev">About Developers</a>
+                    <a href="#">Documentation</a>
+                    
+                </div>
+				
+            </li>
+			<li class="ssubjects">
+					<a href='#'>Misc. <i class="fa fa-caret-down"></i></a>
+					<div class="subjects-tab">
+						<a href="#">FAQ</a>
+						<a href="/bugs">Report Bugs!</a>
+					</div>
+				</li>
+			</div> 
+			
+				<a href="/unconfirmed">Confirm Email </a>
+				<a href="/logout" id="sign-box">Logout</a>
+			
+			</div>
+			<div>
+				&nbsp;
+			</div>
+			
+		{% endif %}			
+        </ul>
+        <a href='#' id='openup'>MENU</a>
+        
+
+    </nav>
+	
+  </SECTION>
+
+
+</header>
+
+<div id="page-container">
+<div class="content-wrap">
+
+
+</div>
+
+
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		<ul class=flashes>
+			{% for category, message in messages %}
+				<li class="{{ category }}"><center>{{ message }}</center></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</body>
+</html>

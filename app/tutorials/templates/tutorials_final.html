@@ -1,0 +1,117 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+<script>
+	function nextt(){
+		var x = document.getElementById("videosection")
+		var y = document.getElementById("pdfsection")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		
+		x.style.display = "none";
+		y.style.display = "block";
+		prev.style.display = "block";
+		next.style.display ="none";
+	
+	}
+	
+	function back(){
+		var x = document.getElementById("videosection")
+		var y = document.getElementById("pdfsection")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		
+		x.style.display = "block";
+		y.style.display = "none";
+		prev.style.display = "none";
+		next.style.display ="block";
+	
+	}
+	
+var stopAllYouTubeVideos = () => { 
+  var iframes = document.querySelectorAll('iframe');
+  
+  Array.prototype.forEach.call(iframes, iframe => { 
+    iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', 
+  func: 'pauseVideo' }), '*');
+ });
+}
+stopAllYouTubeVideos();
+	
+	
+</script>
+{% extends "tutorialslanding_final.html" %}
+{% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tutorialvideos.css')}}">
+<div class="grid">
+   <div class="section1">
+       <ul>
+           <li><a href="/tutorialslanding" class="subject-tab"><i class="fas fa-book"></i>  Subjects</a></li>
+           <li><a href="/cmathlanding"><i class="fas fa-calculator"></i> Core Mathematics</a></li>
+           <li><a href="/intsciencelanding"> <i class="fas fa-flask"></i>  Intergrated Science</a></li>
+           <li><a href="/sociallanding"><i class="fas fa-globe-africa"></i>  Social Studies</a></li>
+           <li><a href="/englishlanding"><i class="fas fa-spell-check"></i>  English </a></li>
+       </ul>
+
+       <marquee behaviour="scroll" direction="left">
+        <img src="{{ url_for('static', filename='images/student.png') }}" alt="Can't load image" height="auto;">
+    </marquee>
+   </div>
+<div class="section2">
+       <div class="head">
+	   
+           <h2>TUTORIALS - {{topic}}<hr></h2>
+		{% if pdfs %}
+           {% for j in pdfs %}
+				
+				<form action='/return-file/' target='_blank' method='POST' align="left"><button name='file' type="submit" value="{{j[0]}}"><b>Click Me for {{j[0]}}</b></button></form>
+			{% endfor %} 
+			<br>
+		{% else %}
+			<center><p>Sorry there are no available pdfs for this topic. <i class="fas fa-frown"></i></p></center>
+		{% endif %}
+			
+           <h3>Videos Section <i class="fas fa-video"></i></h3>
+       </div>
+	   
+       <div class="tutorialvideos">
+            {% if videos %}
+				{% for v in videos %}
+				<div>
+				<iframe src="https://www.youtube.com/embed/{{v[0]}}?rel=0&enablejsapi=1&autoplay=0"
+				allowfullscreen="allowfullscreen" data-inline-video="true"></iframe>
+				</div>
+				{% endfor %}
+				
+			{% else %}
+				<center><p>Sorry there are no available videos for this topic. <i class="fas fa-frown"></i></p></center>
+			{% endif %}
+       </div>
+       
+   </div>
+
+   </div>
+
+
+
+
+			{#<button id='next' type="button" class ='ok' onclick = "nextt();stopAllYouTubeVideos()"> PDFS </button>
+			<button id='prev' type="button" class ='ok' style = "display: none;" onclick = "back()"> VIDEOS </button>
+			
+				
+				
+				<div id="pdfsection" style="display: none;">
+				
+				<h3> PDF SECTION </h3>
+				<h5>{{topic}} </h5><br><br>
+				
+				
+				
+				</div>#}
+				
+				
+			
+			
+		
+
+
+{% endblock %}

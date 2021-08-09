@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/all.min.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/fontawesome.min.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/allprogress.css')}}">
+    <title>Alpha | All Progress</title>
+</head>
+{% extends "prototype.html" %}
+
+
+{% block body %}
+<body>
+    <main>
+        <section class="pageHeader">
+            <h1>All Student Progress</h1>
+            <p>
+                View student test histroy, performace and progress.
+            </p>
+        </section>
+
+        <!--Chale fill in the action idk the submission form you dey like-->
+
+        <form action="/progress" method="POST" >
+
+            <div class="sortby">
+                <h4> View by :</h4>
+                <select id="views" name="views">
+                    <option disabled select option>--please select a subject --</option>
+					<option value="all">All</option>
+					<option value="english">English</option>
+					<option value="social">Social Studies</option>
+					<option value="math">Math</option>
+					<option value="inter">Int. Science</option>
+                </select>
+                <input type="submit" value="Submit">
+            </div>
+			<form action='/progress' method='POST'>
+				<div class="radio">
+					<h4>
+						Sort By:
+					</h4>
+					<label for="sort">
+						<input type="radio" name="sort" value="highest">Highest Score 
+						<input type="radio" name="sort" value="lowest" >Lowest Score<br>
+						<input type="radio" name="sort" value="oldest" >Oldest
+					</label>
+				</div>
+				<div class="showing">
+				{% if trial == 2 %}
+					{% if sorted != () %}
+						{% if sort != 'all' %}
+							<h4>Showing for : {{ sort[0]|upper }}{{sort[1:]}} test.</h4>
+						{% else%}
+							<h4>Showing for : All tests.</h4>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+					<p></p>
+				</div>
+			</form>
+        </form>
+        <section class="page">
+            <table class="prgTable">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Date & Time </th>
+                        <th>Points Earned</th>
+                        <th>Score (%)</th>
+						<th>Recommendation</th>
+                    </tr>
+                </thead>
+			{% if trial == 2 %}
+				{% if sorted != () %}
+					{% if sort != 'all' %}
+						{% for i in sorted.items %}
+						<tbody>
+							<tr>
+								<td>{{ sort[0]|upper }}{{sort[1:]}}</td>
+								<td>{{i.date_taken.strftime("%d %b, %Y  @ %H:%M")}}</td>
+								<td>{{i.last_score * 2}}</td>
+								{% if sort == 'english' %}
+									<td>{{((i.last_score / 35) * 100) | round}}%</td>
+								{% else %}
+									<td>{{((i.last_score / 20) * 100) | round}}%</td>
+								{% endif %}
+								{% if i.last_recommendation == 'None' %}
+									<td> None </td>
+								{% else %}
+									<td>{{i.last_recommendation}}</td>
+								{% endif %}
+							</tr>
+							
+						</tbody>
+						{% endfor %}
+						{% for page_num in sorted.iter_pages() %}
+							{% if page_num %}
+								<a href ="{{ url_for('users.progress', page=page_num)}}">{{page_num}}</a>
+							{% else %}
+							...
+							{% endif %}
+		
+						{% endfor %}
+					{% else %}
+						{% for i in sorted.items %}
+						<tbody>
+							<tr>
+								<td>{{i.last_subject|upper}}</td>
+								<td>03 Mar, 2020 @10:15 </td>
+								<td>{{i.last_score * 2}}</td>
+								{% if i.last_subject == 'english' %}
+									<td>{{((i.last_score / 35) * 100) | round}}%</td>
+								{% else %}
+									<td>{{((i.last_score / 20) * 100) | round}}%</td>
+								{% endif %}
+								{% if i.last_recommendation == 'None' %}
+									<td> None </td>
+								{% else %}
+									<td>{{i.last_recommendation}}</td>
+								{% endif %}
+							</tr>
+							
+						</tbody>
+						{% endfor %}
+						{% for page_num in sorted.iter_pages() %}
+							{% if page_num %}
+								<a href ="{{ url_for('users.progress', page=page_num)}}">{{page_num}}</a>
+							{% else %}
+							...
+							{% endif %}
+				
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+					
+            </table>
+		{% elif trial == 1  %}
+			<p>You do not have any test history for {{sort|upper}}</p>
+		
+		{% else %}
+			<p> Oops! You have no recent activity </p>
+		
+		{% endif %}
+        </section>
+    </main>
+</body>
+{% endblock %}
+</html>

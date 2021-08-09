@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/all.min.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/fontawesome.min.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/Dashboard.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/c3.css')}}">
+    <script type='text/javascript' src="{{ url_for('static', filename = 'js/d3.v5.min.js')}}" charset="utf-8"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename = 'js/c3.min.js')}}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename ='js/c3.js')}}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename ='PapaParse-5.0.2/papaparse.min.js')}}"></script>
+    <title>ALPHA | Dashboard</title>
+</head>
+
+<body>
+
+
+{% extends "prototype.html" %}
+
+
+ {% block body %}
+
+    </nav>
+	
+
+    <main>
+		
+        <div class="pageHeader">
+			
+			
+            <h1>Dashboard</h1>
+			
+            <p>
+                View student performace and progress.
+            </p>
+        </div>
+
+        <div class="divWrapper">
+            <div class="dashCard">
+                <div id="user">
+                    <img src="{{ image_file }}" class="userIcon">
+
+                    <h4>{{current_user.username}}</h4> {# user's username #}
+                    <p>{{current_user.course}}</p> 
+
+                    <hr>
+
+                    <div class="userCol">
+                        <span class="streak">
+                            <Span>Streak : </span>
+                        <img src="{{ url_for('static', filename='images/star.png') }}" class="streakImg" style="padding: 3px 3px 0 3px;">
+                        <span>{{streak.current_streak}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashCard">
+                <div id="activity">
+                    <div>
+                        <h4>Recent Activity</h4>
+                        <p>Results of your last test</p>
+                    </div>
+				{% if trial == 1 %}
+                <span class="activityDate">
+                   Last Date: {{progress.date_taken.strftime("%d %b, %Y")}}<br>
+                </span>
+				<div class="iconCol">
+                        <span class="activity"><i class="fas fa-smile"></i></span><br>
+                        <!--When user schedules a new activity, display "New Schedule"-->
+						Last Test: {{ progress.last_subject[0]|upper }}{{progress.last_subject [1:]}} test.<br>
+						Last Score: <b>{{progress.last_score}}</b>
+						Points Earned: <b>{{progress.last_score * 2 }} points!</b><br>
+						{% if progress.last_recommendation == 'None' %}
+							Last Recommendation: None
+						{% else %}
+							Last Recommendation: <b> {{progress.last_recommendation}}</b><br>
+						{% endif %}
+                
+				</div> 
+				{% else %}
+					<div class="iconCol">
+						<span class="activity"><i class="fas fa-frown"></i>No schedules</span>
+						<div class="activityCol">
+							<span class="note">You have no recent activity. Test a test!</span>
+						</div>
+					</div>
+				{%endif%}
+                
+                </div>
+            </div>
+
+            <div class="dashCard" id="ovrall">
+                <div class="totalProgress">
+                    <div id="progressText">
+                        <h4>Overall Progress</h4>
+                        <p>View your total performance.</p>
+                    </div>
+                    <div id="progressContent">
+                        <div id="prgContText">
+                            <h4>Current Student Level</h4>
+                            <p>View Student overall level</p>
+
+                            <div>
+                                <div id="progressBar">
+								
+								{% if current_user.user_level == 1%}
+                                    <div id="lvl">
+                                        <div id="lvlBar" style="width: calc({{current_user.user_points}}/2000 * 100%);"></div>
+                                        <p>{{current_user.user_points}}/2000</p>
+                                    </div>
+								{% elif current_user.user_level == 2%}
+									<div id="lvl">
+                                        <div id="lvlBar" style="width: calc({{current_user.user_points}}/6000 * 100%);"></div>
+                                        <p>{{current_user.user_points}}/6000</p>
+                                    </div>
+								{% else%}
+									<div id="lvl">
+                                        <div id="lvlBar" style="width: calc({{current_user.user_points}}/10000 * 100%);"></div>
+                                        <p>{{current_user.user_points}}/10000</p>
+                                    </div>
+								{% endif %}
+								
+                                    <p>
+                                        Level: {{current_user.user_level}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="achievement">
+                        <div id="achievementTab">
+                            <h4>Achievements</h4>
+                            <p>Achievements are earned as you take more tests.</p>
+                            <h6><img src="{{ url_for('static', filename='images/crowns.png') }}"> : {{current_user.user_achievement[-1].crowns}}
+							{% if current_trophy == "Silver" %}
+                            <img src="{{ url_for('static', filename='images/trophy (4).png') }}">
+							{% elif current_trophy == "Gold" %}
+                            <img src="{{ url_for('static', filename='images/trophy (1).png') }}"></h6>
+							{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Section>
+            <div class="coursesLvl">
+                <div id="coursesPrg">
+                    <h4>
+                        Courses Progress Level
+                    </h4>
+                    <p>
+                        View your progress for each Subject.
+                    </p>
+                </div>
+				{# if statements for each level of the subject to show the progress of the subject#}
+                <div id="courseWrap">
+                    <div class="courseDiv">
+                        <h6>English Language</h6>
+						{%if subject_level.english_level == 1%}
+							<p>{{((current_user.english_points / 500) * 100) | round}}%</p>
+							<div id="progress"> 
+								<div id="prgBar" style="width:{{(current_user.english_points / 500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+							</div>
+							<span>Level {{subject_level.english_level}}</span>
+						{% elif subject_level.english_level == 2%}
+							<p>{{((current_user.english_points / 1500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.english_points / 1500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+							</div>
+							<span>Level {{subject_level.english_level}}</span>
+						{% else%}
+							<p>{{((current_user.english_points / 2500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.english_points / 2500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+							</div>
+							<span>Level {{subject_level.english_level}}</span>
+						{% endif %}
+                        
+                    </div>
+                </div> 
+                <div id="courseWrap">
+                    <div class="courseDiv">
+						<h6>Social Studies</h6>
+                        {%if subject_level.social_level == 1%}
+							<p>{{((current_user.social_points / 500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.social_points / 500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+							</div>
+							<span>Level {{subject_level.social_level}}</span>
+						{% elif subject_level.social_level == 2%}
+							<p>{{((current_user.social_points / 1500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.social_points / 1500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+							</div>
+							<span>Level {{subject_level.social_level}}</span>
+						{% else%}
+							<p>{{((current_user.social_points / 2500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.social_points / 2500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+							</div>
+							<span>Level {{subject_level.social_level}}</span>
+						{% endif %}
+                    </div>
+                </div>
+                <div id="courseWrap">
+                    <div class="courseDiv"> 
+                        <h6>Core Mathematics</h6>
+                        {%if subject_level.math_level == 1%}
+							<p>{{((current_user.math_points / 500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.math_points / 500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+							</div>
+							<span>Level {{subject_level.math_level}}</span>
+						{% elif subject_level.math_level == 2%}
+							<p>{{((current_user.math_points / 1500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.math_points / 1500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+							</div>
+							<span>Level {{subject_level.math_level}}</span>
+						{% else%}
+							<p>{{((current_user.math_points / 2500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.math_points / 2500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+							</div>
+							<span>Level {{subject_level.math_level}}</span>
+						{% endif %}
+                    </div>
+                </div>
+                <div id="courseWrap">
+                    <div class="courseDiv"> 
+                        <h6>Integrated Science</h6>
+                        {%if subject_level.inter_level == 1%}
+							<p>{{((current_user.inter_points / 500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.inter_points / 500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+							</div>
+							<span>Level {{subject_level.inter_level}}</span>
+						{% elif subject_level.inter_level == 2%}
+							<p>{{((current_user.inter_points / 1500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.inter_points / 1500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+							</div>
+							<span>Level {{subject_level.inter_level}}</span>
+						{% else%}
+							<p>{{((current_user.inter_points / 2500) * 100) | round}}%</p>
+							<div id="progress">
+								<div id="prgBar" style="width:{{(current_user.inter_points / 2500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+							</div>
+							<span>Level {{subject_level.inter_level}}</span>
+						{% endif %}
+                    </div>
+                </div>
+            </div>
+
+			
+            <div class="dashChart">
+                <div id="chartHead">
+                    <h4>Progress Graph</h4>
+                    <p>This graph shows your progress rate. By comparing your oldest test taken to the most recent.</p>
+					<p>Test 1 - Your first test. Test 2 - Your most recent test.</p>
+					
+                </div>
+                <div id="chartDiv" class="dashGraph"></div>
+            </div>
+        </section>
+			
+        <table id="dashTable">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Last Date</th>
+                    <th>Last Score(%)</th>
+                    <th>Last Points </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+					<td>English Language</td>
+					{% if last_english%}
+						<td>{{last_english.date_taken.strftime("%d %b, %Y")}}</td>
+						<td>{{((last_english.last_score / 35) * 100) | round}} %</td>
+						<td>{{last_english.last_score * 2}}</td>
+					{% else%}
+						<td>N/A</td>
+						<td>N/A</td>
+						<td>N/A</td>
+					{% endif %}
+				
+				</tr>
+                <tr>
+                    <td>Core Mathematics</td>
+					{% if last_math %}
+					<td>{{last_math.date_taken.strftime("%d %b, %Y")}}</td>
+                    <td>{{((last_math.last_score/20) * 100) | round}}%</td>
+                    <td>{{last_math.last_score * 2}}</td>
+					
+					{% else %}
+						<td>N/A</td>
+						<td>N/A</td>
+						<td>N/A</td>
+					{% endif %}
+                </tr>
+                <tr>
+                    <td>Social Studies</td>
+					{% if last_social %}
+						<td>{{last_social.date_taken.strftime("%d %b, %Y")}}</td>
+						<td>{{((last_social.last_score/20) * 100) | round}}%</td>
+						<td>{{last_social.last_score * 2}}</td>
+					{% else %}
+						<td>N/A</td>
+						<td>N/A</td>
+						<td>N/A</td>
+					{% endif %}
+                </tr>
+                <tr>
+                    <td>Integrated Science</td>
+					{% if last_inter %}
+						<td>{{last_inter.date_taken.strftime("%d %b, %Y")}}</td>
+						<td>{{((last_inter.last_score/20) * 100) | round}}%</td>
+						<td>{{last_inter.last_score * 2}}</td>
+					{% else %}
+						<td>N/A</td>
+						<td>N/A</td>
+						<td>N/A</td>
+					{% endif %}
+                </tr>
+            </tbody>
+        </table>
+		<div class="dashFoot">
+            <h5>Do you want to view all your progress?</h5>
+            <a href="/progress"><button>All Progress</button></a>
+        </div>
+
+    </main>
+
+	
+	{# setting scores to be used in the graph yah #}
+	
+	{% if last_english %}		
+		{% set english2 = ((last_english.last_score/35) * 100) | round %}
+	{% else %}
+		{% set english2 = 0%}
+	{% endif %}
+	
+	{% if first_english %}
+		{% set english1 = ((first_english.last_score/35) * 100) | round %}
+	{% else %}
+		{% set english1 = 0%}
+	{% endif %}
+	
+	{% if last_social %}		
+		{% set social2 = ((last_social.last_score/20) * 100) | round %}
+	{% else %}
+		{% set social2 = 0%}
+	{% endif %}
+	
+	{% if first_social %}
+		{% set social1 = ((first_social.last_score/35) * 100) | round %}
+	{% else %}
+		{% set social1 = 0%}
+	{% endif %}
+	
+	{% if last_math %}		
+		{% set math2 = ((last_math.last_score/20) * 100) | round %}
+	{% else %}
+		{% set math2 = 0%}
+	{% endif %}
+	
+	{% if first_math %}
+		{% set math1 = ((first_math.last_score/35) * 100) | round %}
+	{% else %}
+		{% set math1 = 0%}
+	{% endif %}
+	
+	{% if last_inter %}		
+		{% set inter2 = ((last_inter.last_score/20) * 100) | round %}
+	{% else %}
+		{% set inter2 = 0%}
+	{% endif %}
+	
+	{% if first_inter %}
+		{% set inter1 = ((first_inter.last_score/35) * 100) | round %}
+	{% else %}
+		{% set inter1 = 0%}
+	{% endif %}
+
+
+    
+    <script>
+		
+		onload = function createGraph() {
+
+		var subject = ['English_Language', 'Core_Mathematics', 'Social_Studies', 'Integrated_Science'];
+		var score1 = ['Test 1', {{english1}}, {{math1}}, {{social1}}, {{inter1}}];
+		var score2 = ['Test 2', {{english2}}, {{math2}}, {{social2}}, {{inter2}}];
+
+
+		var chart = c3.generate({
+			bindto: document.getElementById('chartDiv'),
+			padding: {
+				right: 7,
+				bottom: 15
+			},
+			data: {
+				columns: [
+					score1,
+					score2
+				]
+			},
+			axis: {
+				x: {
+					type: 'category',
+					categories: subject,
+					tick: {
+						fit: true
+					},
+					padding: {
+						bottom: 5000
+					}
+				},
+				y: {
+					max: 100
+				}
+			},
+			zoom: {
+				enabled: true
+			},
+		});
+		setTimeout(function() {
+			chart.unload({
+				columns: [
+					['Score 1', 94, 68, 45, 80]
+				]
+			});
+		}, 1500);
+		setTimeout(function() {
+			chart.unload({
+				columns: [
+					['Score 2', 84, 58, 95, 70]
+				]
+			});
+		}, 1500);
+		setTimeout(function() {
+			chart.load({
+				columns: [
+					score1
+				]
+			});
+		}, 1500);
+		setTimeout(function() {
+			chart.load({
+				columns: [
+					score2
+				]
+			})
+		}, 2000);
+		setTimeout(function() {
+			chart.resize({ height: 190 })
+		}, 1000);
+	}	
+	</script>
+
+</body>
+{% endblock body %}
+</html>

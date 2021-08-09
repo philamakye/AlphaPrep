@@ -1,0 +1,189 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% extends "tutorialslanding_final.html" %}
+{% block tutorialbody %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/maths.css')}}">
+<script>
+function showlevel1(){
+		var modal = document.getElementById("level1");
+		modal.style.display = "block";
+	}
+	
+function hidelevel1(){
+	var modal = document.getElementById("level1");
+	modal.style.display = "none";
+	
+	}
+function showlevel2(){
+		var modal = document.getElementById("level2");
+		modal.style.display = "block";
+	}
+	
+function hidelevel2(){
+	var modal = document.getElementById("level2");
+	modal.style.display = "none";
+	
+	}
+function showlevel3(){
+		var modal = document.getElementById("level3");
+		modal.style.display = "block";
+	}
+	
+function hidelevel3(){
+	var modal = document.getElementById("level3");
+	modal.style.display = "none";
+	
+	}
+function submit_sets(){
+		document.getElementById('setsform').submit()
+	}
+function submit_decimals(){
+		document.getElementById('decimalsform').submit()
+	}
+function submit_direct(){
+		document.getElementById('directform').submit()
+	}
+function submit_factorization(){
+		document.getElementById('factorizationform').submit()
+	}
+function submit_rates(){
+		document.getElementById('ratesform').submit()
+	}
+function submit_logarithms(){
+		document.getElementById('logarithmsform').submit()
+	}
+function submit_plane(){
+		document.getElementById('planeform').submit()
+	}
+function submit_inequalities(){
+		document.getElementById('inequalitiesform').submit()
+	}
+function submit_mensuration(){
+		document.getElementById('mensurationform').submit()
+	}
+function submit_areanvolume(){
+		document.getElementById('areanvolumeform').submit()
+	}
+function submit_areanperimeter(){
+		document.getElementById('areanperimeterform').submit()
+	}
+function submit_change(){
+		document.getElementById('changeform').submit()
+	}
+function submit_algebraic(){
+		document.getElementById('algebraicform').submit()
+	}
+function submit_percentages(){
+		document.getElementById('percentagesform').submit()
+	}
+function submit_fractions(){
+		document.getElementById('fractionsform').submit()
+	}
+function submit_indices(){
+		document.getElementById('indicesform').submit()
+	}
+function submit_series(){
+		document.getElementById('seriesform').submit()
+	}
+function submit_coordinate(){
+		document.getElementById('coordinateform').submit()
+	}
+function submit_stats(){
+		document.getElementById('statsform').submit()
+	}
+function submit_trig(){
+		document.getElementById('trigform').submit()
+	}
+function submit_polynomials(){
+		document.getElementById('polynomialsform').submit()
+	}
+function submit_diff(){
+		document.getElementById('diffform').submit()
+	}
+function submit_perm(){
+		document.getElementById('permform').submit()
+	}
+function submit_application(){
+		document.getElementById('applicationform').submit()
+	}
+function submit_bearing(){
+		document.getElementById('bearingform').submit()
+	}
+</script>
+
+   <div class="section2" id="blur">
+   <br>
+       <div class="head">
+           <h2>CORE MATHEMATICS<hr></h2> 
+       </div>
+      <br>
+     <div class="levels">
+      <div class="level1">
+         <img class="one" src="{{ url_for('static', filename='images/maths(1).png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel1()"><h3>Level 1</h3></a>
+      </div>
+      
+       <div class="level2">
+        <img class="two" src="{{ url_for('static', filename='images/maths(1).png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel2()"><h3>Level 2</h3></a>
+       </div>
+       
+       <div class="level3">
+         <img class="three" src="{{ url_for('static', filename='images/maths(1).png') }}" alt="Can't find image">   <br> <a href="#" onclick="javascript: showlevel3()"><h3>Level 3</h3></a>
+       </div>
+
+     </div>
+     
+       
+   </div>
+    <div class="topics" id="level1" style="display: none;">
+	  <a href="#" onclick="javascript: hidelevel1()"><i class="fas fa-window-close"></i></a>
+	  <ul>
+		<li class="topic-head">TOPICS</li>
+		<form id= "setsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="SETS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_sets()">Sets And Operations On Sets</a></li></form>
+		<form id= "decimalsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="DECIMALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_decimals()">Decimals</a></li></form>
+		<form id= "directform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="DIRECT/INDIRECT PROPORTIONALITY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_direct()">Direct and Indirect Proportionality</a></li></form>
+		<form id= "factorizationform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="FACTORIZATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_factorization()">Factorization</a></li></form>
+		<form id= "ratesform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="RATES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_rates()">Rates</a></li></form>
+		<form id= "logarithmsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="LOGARITHMS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_logarithms()">Logarithms</a></li></form>
+		<form id= "surdsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="SURD" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_surds()">Surds</a></li></form>
+		<form id= "planeform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="PLANE GEOMETRY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_plane()">Plane Geometry</a></li></form>
+		<form id= "inequalitiesform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="LINEAR INEQUALITIES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_inequalities()">Linear Inequalities</a></li></form>
+		<form id= "mensurationform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="MENSURATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_mensuration()">Mensuration</a></li></form>
+		<form id= "areanvolumeform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="AREA AND VOLUME OF SOLID FIGURES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_areanvolume()">Area and Volume of Solid Figures</a></li></form>
+		<form id= "areanperimeterform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="AREA AND PERIMETER OF PLANE FIGURES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_areanperimeter()">Area and Perimeter of Plane Figures</a></li></form>
+		<form id= "changeform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="CHANGE OF SUBJECT/SUBSTITUTIONS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_change()">Change of Subject and Subsitution</a></li></form>
+		<form id= "algebraicform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="ALGEBRAIC EXPRESSIONS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_algebraic()">Algebraic Expressions</a></li></form>
+		<form id= "percentagesform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="PERCENTAGES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_percentages()">Percentages</a></li></form>
+		<form id= "fractionsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="FRACTIONS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_fractions()">Fractions</a></li></form>
+		<form id= "indicesform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="INDICES" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_indices()">Indices</a></li></form>
+
+
+	  </ul>
+  
+</div>
+ 
+ <div class="topics" id="level2" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel2()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+    <form id= "seriesform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="SERIES AND SEQUENCE" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_series()">Series and Sequence</a></li></form>
+    <form id= "coordinateform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="COORDINATE GEOMETRY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_coordinate()">Coordinate Geometry</a></li></form>
+    <form id= "polynomialsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="POLYNOMIALS" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_polynomials()">Polynomials</a></li></form>
+    <form id= "statsform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="STATISTICS AND PROBABILITY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_stats()">Statistics and Probability</a></li></form>
+    <form id= "trigform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="TRIGONOMETRY" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_trig()">Trigonometry</a></li></form>
+
+  </ul>
+  
+</div>
+
+<div class="topics" id="level3" style="display: none;">
+    <a href="#" onclick="javascript: hidelevel3()"><i class="fas fa-window-close"></i></a>
+  <ul>
+    <li class="topic-head">TOPICS</li>
+    <form id= "diffform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="DIFFERENTIATION AND INTEGRATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_diff()">Differentiation and Integration</a></li></form>
+    <form id= "permform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="PERMUTATION AND COMBINATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_perm()">Permutation and Combination</a></li></form>
+    <form id= "applicationform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="APPLICATION OF INTEGRATION AND DIFFERENTIATION" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_application()">Application of Differentiation and Integration</a></li></form>
+	<form id= "bearingform" action='/tutorials' method='POST'><input name="subject" value="math" hidden /><input name="topic" value="BEARING" hidden /><li><a style="cursor: pointer;" onclick="javascript: submit_bearing()">Bearing</a></li></form>
+
+  </ul>
+  
+</div>
+{% endblock %}

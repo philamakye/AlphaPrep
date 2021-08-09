@@ -1,0 +1,150 @@
+/* Style the tab */
+
+.tab {
+    overflow: hidden;
+    /*border: 1px solid #ccc;
+    background-color: #f1f1f1;*/
+    justify-content: center;
+    margin-left: 300px;
+    /*margin-top: 1000px;*/
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 2em;
+    border-radius: 20px;
+    justify-content: center;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #660066;
+    color: floralwhite;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #660066;
+    color: floralwhite;
+  }
+  
+  .tabcontent button {
+    background-color: blue;
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 2em;
+    border-radius: 10px;
+    justify-content: center;
+  }
+  
+  .tabcontent button.active {
+    background-color: #660066;
+    color: floralwhite;
+  }
+  
+  .tabcontent button:hover {
+    background-color: #660066;
+    color: floralwhite;
+  }
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+  }
+  
+  /* Fade in tabs */
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+/*--LOG IN FORM--*/
+  .center{
+    width: 430px;
+    margin: 130px auto;
+    position: relative;
+    margin-bottom: 20px;
+   }
+   .center .header{
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    padding: 25px 0 30px 25px;
+    background: #660066;
+    border-bottom: 1px solid #370e3f;
+    border-radius: 5px 5px 0 0;
+   }
+   .center form{
+    position: absolute;
+    background: white;
+    width: 100%;
+    padding: 50px 10px 0 30px;
+    box-sizing: border-box;
+    border: 1px solid #660066;
+    border-radius: 0 0 5px 5px;
+   }
+   form input{
+    height: 50px;
+    width: 90%;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid silver;
+    font-size: 18px;
+    outline: none;
+    margin-top: 20px;
+   }
+   form input[type="password"]{
+    margin-top: 20px;
+   }
+   form i{
+    position: absolute;
+    font-size: 25px;
+    color: grey;
+    margin: 15px 0 0 -45px;
+   }
+   i.fa-eye{
+    margin-top: 35px;
+   }
+   i.fa-envelope{
+       margin-top: 35px;
+   }
+   form input[type="submit"]{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 130px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    line-height: 45px;
+    border-radius: 45px;
+    border-radius: 5px;
+    background: #5c1769;
+   }
+   form input[type="submit"]:hover{
+    background: #660066;
+    transition: .5s;
+   }
+   form a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #7f2092;
+    padding: 0 0 0 20px;
+   }
+  

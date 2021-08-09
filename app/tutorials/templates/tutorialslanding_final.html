@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorials | ALPHA Prep</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tutorials.css')}}">
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/all.min.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='css/fontawesome.min.css')}}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+ {% extends "prototype.html" %}
+ {% block body %}
+
+<div class="grid">
+   <div class="section1">
+       <ul>
+           <li><a href="{{url_for('tutorials.tutorials_landing')}}" class="subject-tab"><i class="fas fa-book"></i>  Subjects</a></li>
+           <li><a href="{{url_for('tutorials.cmath_landing')}}"><i class="fas fa-calculator"></i> Core Mathematics</a></li>
+           <li><a href="{{url_for('tutorials.intscience_landing')}}"> <i class="fas fa-flask"></i>  Intergrated Science</a></li>
+           <li><a href="{{url_for('tutorials.social_landing')}}"><i class="fas fa-globe-africa"></i>  Social Studies</a></li>
+           <li><a href="{{url_for('tutorials.english_landing')}}"><i class="fas fa-spell-check"></i>  English </a></li>
+       </ul>
+
+       <marquee behaviour="scroll" direction="left">
+        <img src="{{ url_for('static', filename='images/student.png') }}" alt="Can't load image" height="450px">
+    </marquee>
+   </div>
+
+ {% block tutorialbody %}
+   <div class="section2">
+       <div class="head">
+           <h2>TUTORIALS<hr></h2>
+           <h3>Some Available Videos <i class="fas fa-video"></i></h3>
+       </div>
+       <div class="videos">
+           <marquee behaviour="scroll" direction="left"  onmouseover="this.stop();"
+           onmouseout="this.start();">
+
+            <video width="350" height="370" controls>
+  <source src="{{ url_for('static', filename='videos/English Language Learning Tips - Prefixes and Suffixes.mkv') }}#t=10" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<video width="350" height="370" controls>
+  <source src="{{ url_for('static', filename='videos/Learning Science 101- Cognitive Load Theory.mp4') }}#t=10" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<video width="350" height="370" controls>
+  <source src="{{ url_for('static', filename='videos/Math Tricks.mp4') }}#t=10" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+    </marquee>
+    <hr>
+       </div>
+     
+     <div class="Nav-text">
+         <p>Click on a Subject to select a range of tutorials in carefully selected topics <br> Topics have also been arranged on a difficulty level base  </p>
+     </div>
+       
+   </div>
+{% endblock tutorialbody %}
+   </div>
+
+
+<div id="page-container">
+
+<div class="content-wrap">
+	
+</div>
+
+
+</div>
+
+{% endblock body %}
+</body>
+</html>

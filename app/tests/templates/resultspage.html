@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Results.css')}}">
+
+	
+<script>
+
+	function nextt(){
+		var x = document.getElementById("firstsection")
+		var y = document.getElementById("storysection")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		
+		x.style.display = "none";
+		y.style.display = "block";
+		prev.style.display = "block";
+		next.style.display ="none";
+	
+	}
+	
+	function back(){
+		var x = document.getElementById("firstsection")
+		var y = document.getElementById("storysection")
+		var prev = document.getElementById("prev")
+		var next = document.getElementById("next")
+		
+		x.style.display = "block";
+		y.style.display = "none";
+		prev.style.display = "none";
+		next.style.display ="block";
+	
+	}
+	
+	function showModal(){
+		var modal = document.getElementById("myModal");
+		modal.style.display = "block";
+	}
+	
+	function hideModal(){
+		var modal = document.getElementById("myModal");
+		modal.style.display = "none";
+		
+	}
+</script>
+    <title>ALPHA | Results</title>
+</head>
+
+<body>
+
+
+    <section>
+        <div id="background">
+		{% if subject == 'social' %}
+            <h2>Social Studies Test Results</h2>
+		{% elif subject == 'inter'%}
+			<h2>Int. Science Test Results</h2>
+		{% elif subject == 'math'%}
+			<h2>Core Mathematics Test Results</h2>
+		{% elif subject == 'english' %}
+			<h2>English Test Results</h2>
+		{% endif %}
+        </div>
+
+        <div id="backgroundMain">
+
+            <div class="marker"></div>
+
+            <div id="resultCont">
+                <div id="resultHead">
+					{%if current_user.is_authenticated %}
+						<h3>{{current_user.username}}, These are your results!</h3>
+					{% else %}
+						<h3>Guest, These are your test results! </h3>
+					{% endif %}
+						{%if (wrongs/total * 100 >= 75) %}
+		
+							<p><b>You did not do so well.</b></p>
+							
+						{% elif ((wrongs/total * 100) < 75) and ((wrongs/total * 100) >= 50) %}
+							<b><p>You did moderately well. </p></b>
+							
+							
+						{% else %}
+							<b><p>You did great!</p></b>
+						{% endif %}
+					
+
+                    <p>You scored: </p> 
+
+                    <h4>{{(correct/total * 100)|round}}%</h4>
+                </div>
+
+                <div id="review">
+                    <div id="contents">
+                        <div class="reviews">
+                            <h4> Review your questions and the corresponding right answers.</h4>
+                            <p>Find out the areas you missed on your tests.</p>
+                        </div>
+                    </div>
+                    <a><button id="reviewBtn">Review</button></a>
+                    <!--The action of this button is supposed to open the anwsered questions-->
+                </div>
+            </div>
+
+        </div>
+	{% if current_user.is_authenticated %}
+        <div id="background2"></div>
+			<div class="tut">
+				<div class="tutText">
+					<h4>Improve your understanding.</h4>
+					<p>Find tutorial videos in areas you missed on your tests.
+						<br>Visit the tutorial page.
+					</p>
+				</div>
+				{% if subject == 'social' %}
+					<a href="/sociallanding"><button type="">Watch a tutorial</button></a>
+				{% elif subject == 'english' %}
+					<a href="/english_landing"><button type="">Watch a tutorial</button></a>
+				{% elif subject == 'inter' %}
+					<a href="/sciencelanding"><button type="">Watch a tutorial</button></a>
+				{% elif subject == 'math' %}
+					<a href="/cmathlanding"><button type="">Watch a tutorial</button></a>
+				{% endif %}
+				
+				
+			</div>
+	{% else %}
+		<div id="background2"></div>
+			<div class="tut">
+				<div class="tutText">
+					<h4>Improve your understanding.</h4>
+					<p>Find tutorial videos in areas you missed on your tests.
+						<br>Join us to get access to our tutorials.
+					</p>
+				</div>
+				<a href="/signup"><button type="">Sign Up</button></a>
+			</div>
+	{% endif %}
+		<div class="tutSuggestions">			
+                <h4>
+                    Recommendations.
+                </h4>
+			{% if subject == "english" %}
+                <div class="tutSugCont">
+				{%if ((wp/t1 * 100 < 75) and (wp/t1 * 100 >= 50)) or (wp/t1 * 100 >= 75) %}
+					<div class="sugCard">
+						{% if (wp/t1 * 100 < 75) and (wp/t1 * 100 >= 50) %}
+							
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif wp/t1 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Topic:</p> Opposites.
+									</h4>
+								</div>
+							
+						{% endif %}
+					</div>
+				{% endif %}
+				{%if ((wtw/t2 * 100 < 75) and (wtw/t2 * 100 >= 50)) or (wtw/t2 * 100 >= 75) %}
+                    <div class="sugCard">
+						{% if (wtw/t2 * 100 < 75) and (wtw/t2 * 100 >= 50) %}
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif wtw/t2 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Section:</p> Best Completes 
+									</h4>
+								</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{%if ((wt/t3 * 100 < 75) and (wt/t3 * 100 >= 50)) or (wt/t3 * 100 >= 75) %}
+					<div class="sugCard">
+						{% if (wt/t3 * 100 < 75) and (wt/t3 * 100 >= 50) %}
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif wt/t3 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Section:</p>Story Problems/<br>Numbered Gaps
+									</h4>
+								</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{%if ((w4/t4 * 100 < 75) and (w4/t4 * 100 >= 50)) or (w4/t4 * 100 >= 75) %}
+					<div class="sugCard">
+						{% if (w4/t4 * 100 < 75) and (w4/t4 * 100 >= 50) %}
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif w4/t4 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Topic:</p>Synonyms
+									</h4>
+								</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{%if ((w5/t5 * 100 < 75) and (w5/t5 * 100 >= 50)) or (w5/t5 * 100 >= 75) %}
+					<div class="sugCard">
+						{% if (w5/t5 * 100 < 75) and (w5/t5 * 100 >= 50) %}
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif w5/t5 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Topic:</p>Intepretations
+									</h4>
+								</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{%if ((w6/t6 * 100 < 75) and (w6/t6 * 100 >= 50)) or (w6/t6 * 100 >= 75) %}
+					<div class="sugCard">
+						{% if (w6/t6 * 100 < 75) and (w6/t6 * 100 >= 50) %}
+								<div class="cardDisp">
+									<p>Moderately Recommended</p>
+									{% set count = 1 %}
+								</div>
+						{% elif w6/t6 * 100 >= 75 %}
+								<div class="cardDisp">
+									<p>Highly Recommended</p>
+									{% set count = 1 %}
+								</div>
+								<div class="sugCont">
+									<p>
+										Subject ~ English Language
+									</p>
+									<h4>
+										<p>Topic:</p>Literature
+									</h4>
+								</div>
+						{% endif %}
+					</div>
+				{% endif %}
+                
+			{% endif %}
+			{% if subject == 'social' or subject =='math' or subject == 'inter'%}
+				{% if recommendation != "None" %}
+					<div class="sugCard">
+						<div class="cardDisp">
+						<p>{{recommendation_level}}</p>
+						</div>
+						<div class="sugCont">
+							{% if subject == 'social' %}
+								<p>
+									Subject ~ Social Studies
+								</p>
+							{% elif subject == 'math'%}
+								<p>
+									Subject ~ Core Mathematics
+								</p>
+							{% elif subject == 'inter' %}
+								<p>
+									Subject ~ Int. Science
+								</p>
+							{% endif %}
+							<h4>
+								<p>Topic:</p>{{recommendation|upper}}
+							</h4>
+						</div>
+				{% endif %}
+						</div>
+			{% endif %}
+				
+				
+			
+			</div>
+        </div>
+        <div class="usrPrg">
+            <div class="prgLvlUpdate">
+                <h4>
+                    Overrall progress level.
+                </h4>
+                <p>
+                    Your current progress level.
+                </p>
+
+                <div id="progressBar">
+				{% if current_user.is_authenticated %}
+					{% if current_user.user_level == 1%}
+						<div id="lvl">
+							<div id="lvlBar" style="width: calc({{current_user.user_points}}/2000 * 100%);"></div>
+							<p>{{current_user.user_points}}/2000</p>
+						</div>
+					{% elif current_user.user_level == 2%}
+						<div id="lvl">
+							<div id="lvlBar" style="width: calc({{current_user.user_points}}/6000 * 100%);"></div>
+							<p>{{current_user.user_points}}/6000</p>
+						</div>
+					{% else%}
+						<div id="lvl">
+							<div id="lvlBar" style="width: calc({{current_user.user_points}}/10000 * 100%);"></div>
+							<p>{{current_user.user_points}}/10000</p>
+						</div>
+					{% endif %}
+					
+						<p>
+							Level: {{current_user.user_level}}
+						</p>
+				{% else %}
+					<div id="lvl">
+							<div id="lvlBar" style="width: calc({{correct/total}} * 100%);"></div>
+							<p>{{correct}}/{{total}}</p>
+					</div>
+						
+					<p>
+						Level: {{current_user.user_level}}
+					</p>
+				{% endif %}
+				</div>
+            </div>
+            <div class="prgLvlUpdate2">
+                <h4>
+                    Subject Progress Level.
+                </h4>
+                <p>Your current progress level for this subject.</p>
+
+                <div id="courseWrap">
+                    <div class="courseDiv">
+					{% if current_user.is_authenticated %}
+						{% if subject == "english" %}
+							<h5>English Language</h5>
+							{%if subject_level.english_level == 1%}
+								<p>{{((current_user.english_points / 500) * 100) | round}}%</p>
+								<div id="progress"> 
+									<div id="prgBar" style="width:{{(current_user.english_points / 500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+								</div>
+								<span>Level {{subject_level.english_level}}</span>
+							{% elif subject_level.english_level == 2%}
+								<p>{{((current_user.english_points / 1500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.english_points / 1500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+								</div>
+								<span>Level {{subject_level.english_level}}</span>
+							{% else%}
+								<p>{{((current_user.english_points / 2500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.english_points / 2500) * 100}}%; background-color: rgb(2, 114, 99);"></div>
+								</div>
+								<span>Level {{subject_level.english_level}}</span>
+							{% endif %}
+							
+						{% elif subject == "social" %}
+							<h5>Social Studies</h5>
+							{%if subject_level.social_level == 1%}
+								<p>{{((current_user.social_points / 500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.social_points / 500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+								</div>
+								<span>Level {{subject_level.social_level}}</span>
+							{% elif subject_level.social_level == 2%}
+								<p>{{((current_user.social_points / 1500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.social_points / 1500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+								</div>
+								<span>Level {{subject_level.social_level}}</span>
+							{% else%}
+								<p>{{((current_user.social_points / 2500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.social_points / 2500) * 100}}%; background-color: rgb(153, 39, 138);"></div>
+								</div>
+								<span>Level {{subject_level.social_level}}</span>
+							{% endif %}
+						{% elif subject == "math" %}
+							<h5>Core Mathematics</h5>
+							{%if subject_level.math_level == 1%}
+								<p>{{((current_user.math_points / 500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.math_points / 500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+								</div>
+								<span>Level {{subject_level.math_level}}</span>
+							{% elif subject_level.math_level == 2%}
+								<p>{{((current_user.math_points / 1500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.math_points / 1500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+								</div>
+								<span>Level {{subject_level.math_level}}</span>
+							{% else%}
+								<p>{{((current_user.math_points / 2500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.math_points / 2500) * 100}}%; background-color: rgb(8, 123, 158);"></div>
+								</div>
+								<span>Level {{subject_level.math_level}}</span>
+							{% endif %}
+						{% elif subject == "inter" %}
+							<h5>Integrated Science</h5>
+							{%if subject_level.inter_level == 1%}
+								<p>{{((current_user.inter_points / 500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.inter_points / 500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+								</div>
+								<span>Level {{subject_level.inter_level}}</span>
+							{% elif subject_level.inter_level == 2%}
+								<p>{{((current_user.inter_points / 1500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.inter_points / 1500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+								</div>
+								<span>Level {{subject_level.inter_level}}</span>
+							{% else%}
+								<p>{{((current_user.inter_points / 2500) * 100) | round}}%</p>
+								<div id="progress">
+									<div id="prgBar" style="width:{{(current_user.inter_points / 2500) * 100}}%; background-color: rgb(64, 7, 156);"></div>
+								</div>
+								<span>Level {{subject_level.inter_level}}</span>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+		{% if current_user.is_authenticated %}
+			<div class="backToHaven">
+				<h5>Go back to Dashboard?</h5>
+				<a href="/dashboard"><button type="">Dashboard</button></a>
+			</div>
+		{% else %}
+			<div class="backToHaven">
+				<h5>Go back to Home?</h5>
+				<a href="/index"><button type="">Home</button></a>
+			</div>
+		{% endif %}
+
+    </section>
+
+    <div class="answeredQs" id="resultpage">
+        <div class="closeBtn">
+            +
+        </div>
+        <div class="qsTab">
+            <center>
+			<p>You earned: <b>{{(correct * 2)- (wrongs * 0.5)}}</b> points!!</p>
+			<p style="color: white;">Correct Answers: <b>{{correct}}</b> and  gained <b>{{correct * 2}} points!</b></p>
+			<p style="color: red;">You got <b>{{wrongs}}</b> answers wrong and lost <b>{{wrongs * 0.5}}</b> points!</p>
+			<br>
+			
+			<br>
+			<b><p>See the correct answers and the answers you picked to each question below:</p></b>
+			{% if subject == 'english' %}
+				<blockquote>
+					
+					<div id="firstsection" style="display: block;">
+						<ol start="1">
+						{% for i in q1 %} 
+							<li type = "1">  {{i|safe}}</li>
+							
+							{% for j in a1[i] %} {# loops throuh the questions and the right and picked answers #}
+								<b>The correct answer is:</b> {{j[0]}}<br>
+								<b>You picked:</b> {{c1[i]}} <br> 
+								
+								<br>
+							{% endfor %}
+							
+							<br>
+					
+						{% endfor %}
+						</ol>	
+						<ol start ="7">
+						{% for i in q2 %} 
+						
+							<li type = "1">  {{i|safe}}</li>
+							
+							{% for j in a2[i] %} {# loops throuh the questions and the right and picked answers #}
+								<b>The correct answer is:</b> {{j[0]}}<br>
+								<b>You picked:</b> {{c2[i]}} <br> 
+								
+								<br>
+							{% endfor %}
+							
+							<br>
+							
+						{% endfor %}
+						</ol>
+						<br>
+						<br>
+						<br>
+						<ol start ="20">
+						{% for i in q4 %} 
+						
+							<li type = "1">  {{i|safe}}</li>
+							
+							{% for j in a4[i] %} {# loops throuh the questions and the right and picked answers #}
+								<b>The correct answer is:</b> {{j[0]}}<br>
+								<b>You picked:</b> {{c4[i]}} <br> 
+								
+								<br>
+							{% endfor %}
+							
+							<br>
+							
+						{% endfor %}
+						</ol>
+						<ol start ="22">
+						{% for i in q5 %} 
+						
+							<li type = "1">  {{i|safe}}</li>
+							
+							{% for j in a5[i] %} {# loops throuh the questions and the right and picked answers #}
+								<b>The correct answer is:</b> {{j[0]}}<br>
+								<b>You picked:</b> {{c5[i]}} <br> 
+								
+								<br>
+							{% endfor %}
+							
+							<br>
+							
+						{% endfor %}
+						</ol>
+						<ol start ="24">
+						{% for i in q6 %} 
+						
+							<li type = "1">  {{i|safe}}</li>
+							
+							{% for j in a6[i] %} {# loops throuh the questions and the right and picked answers #}
+								<b>The correct answer is:</b> {{j[0]}}<br>
+								<b>You picked:</b> {{c6[i]}} <br> 
+								
+								<br>
+							{% endfor %}
+							
+							<br>
+							
+						{% endfor %}
+						</ol>
+					</div>
+						
+					<div id = 'storysection' style="display: none;">
+						
+							{{ st[0][0] }}
+							<br>
+							<br>
+						<ol start = "10">	
+							{% for i in sa %} 
+								<li type='1'>
+								<b>The correct answer is:</b> {{sa[i][0][0]}}<br>
+								<b> You Picked: </b> {{sb[i]}}
+								</li>	
+							{% endfor %}
+							
+							<br>
+						</ol>
+					</div>
+					
+					<button id='next' type="button" class ='ok' onclick = "nextt()"> Story Page </button>
+					<button id='prev' type="button" class ='ok' style = "display: none;" onclick = "back()"> Previous Page </button>
+					
+			{% else %}
+				<blockquote>
+					<ol>
+						{% for i in q1 %} 
+							<li type = "1">  {{i|safe}}</li>
+									
+								{% for j in a1[i] %} {# loops throuh the questions and the right and picked answers #}
+									<b>The correct answer is:</b> {{j[0]}}<br>
+									<b>You picked:</b> {{c1[i]}} <br> 
+										
+									<br><br>
+								{% endfor %}
+						{% endfor %}
+					
+					</ol>
+				</blockquote>
+			{% endif %}
+			
+			
+			
+			
+			</center>
+        </div>
+    </div>
+
+</body>
+
+<script src="{{ url_for('static', filename = 'js/Result.js')}}"></script>
+
+</html>

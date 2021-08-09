@@ -1,0 +1,15 @@
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+{% block body %}
+<center>
+	<title>Method Not Allowed </title>
+	<h1>Page Not Found </h1>
+	<p> Sorry, something went wrong. We are sorry. </p>
+	<p><a href=" {{url_for('users.dashboard') }}"> Go somewhere nice </a></p>
+</center>
+{% endblock body %}

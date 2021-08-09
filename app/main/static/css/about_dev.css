@@ -1,0 +1,75 @@
+body main {
+    box-sizing: border-box;
+    margin: 0 130px;
+    background-color: rgb(248, 248, 248);
+    object-fit: cover;
+}
+
+main #headerImg {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    background: url(../images/about-background-4.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main #headerText {
+    box-sizing: inherit;
+    padding-top: 300px;
+    padding-left: 200px;
+    color: rgb(255, 255, 255);
+}
+
+main #headerText h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 45px;
+    font-weight: 400;
+}
+
+main section:nth-child(even) {
+    display: flex;
+    position: relative;
+    padding: 30px 60px;
+}
+
+main section:nth-child(odd) {
+    display: flex;
+    position: relative;
+    padding: 30px 60px;
+    flex-direction: row-reverse;
+}
+
+main #devimgBox {
+    top: 0;
+    position: sticky;
+    min-width: 45%;
+    height: 80vh;
+}
+
+main #devimgBox img,
+main .devImg1,
+main .devImg2,
+main .devImg3,
+main .devImg4 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 80%;
+    height: 330px;
+    border-radius: 49% 49%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(94, 146, 224);
+}
+
+section:nth-child(even) #devTextBox {
+    padding: 100px 0 100px 100px;
+    color: rgb(99, 93, 93);
+}
+
+section:nth-child(odd) #devTextBox {
+    padding: 100px 70px 100px 50px;
+    color: rgb(99, 93, 93);
+    text-align: left;
+}

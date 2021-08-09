@@ -1,0 +1,339 @@
+body {
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    background-color: rgb(238, 234, 177);
+    margin: 0;
+}
+
+.logoName {
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+section nav h3 {
+    margin-block-start: 10px;
+    margin-inline-end: 0px;
+}
+
+section nav img {
+    width: 35px;
+    height: 33px;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
+}
+
+section nav {
+    height: 41px;
+    width: 100%;
+    background-color: #660066;
+    color: rgb(211, 194, 163);
+    position: static;
+}
+
+section nav ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+
+section nav li {
+    display: inline-flex;
+}
+
+section nav a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #eee;
+    text-decoration: none;
+}
+
+section nav li:not(:last-child):hover {
+    background-color: #812681;
+}
+
+section nav a#openup {
+    display: none;
+}
+
+@media screen and (max-width: 880px) {
+    section nav {
+        height: auto;
+        border-bottom: 0;
+    }
+    section nav ul {
+        display: none;
+        height: auto;
+        float: none;
+    }
+    section nav li {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+    section nav a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+        background: #660066;
+        border-bottom: 1px solid rgb(121, 121, 121);
+    }
+    section nav a:hover {
+        background: #250125;
+    }
+    section nav a#openup:after {
+        display: none;
+        content: "|||";
+        transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 5px;
+        top: 20px;
+    }
+    section nav a#openup {
+        display: inline-block;
+        background-color: #250125;
+        width: 100%;
+        position: relative;
+        display: -webkit-inline-flex;
+    }
+}
+
+.resp:after {
+    clear: both;
+}
+
+.resp:before,
+.resp:after {
+    content: " ";
+    display: table;
+}
+
+.resp {
+    zoom: 1;
+}
+
+.panel {
+    padding-bottom: 4px;
+    padding-right: 20px;
+}
+
+.panel h3 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    font-size: small;
+    padding: 0;
+    display: contents;
+}
+
+.panel a {
+    display: none;
+}
+
+.panel .fa {
+    color: white;
+}
+
+.panel .fa:hover {
+    color: greenyellow;
+}
+
+.panel .fas {
+    color: white;
+}
+
+.panel .fas:hover {
+    color: greenyellow;
+}
+
+.panel input[type="text"] {
+    font-family: sans-serif, arial;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+section nav .about-tab {
+    top: 41px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+section nav .about-tab a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+section nav .about-tab a:hover {
+    color: white;
+    background: #812681;
+}
+
+section nav .aabout:hover .about-tab {
+    display: block;
+    overflow: auto;
+}
+
+section nav .subjects-tab {
+    top: 41px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+section nav .subjects-tab a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+section nav .subjects-tab a:hover {
+    color: white;
+    background: #812681;
+}
+
+section nav .ssubjects:hover .subjects-tab {
+    display: block;
+    overflow: auto;
+}
+
+
+}
+#page-container{
+	position: absolute;
+	min-height: 100vh;
+}
+
+.content-wrap{
+	padding-bottom: 2.5rem;
+	background-size: cover;
+}
+.footer{
+	position: fixed;
+	bottom: 0; left: 0; right: 0;
+	width:100%;
+	height: 60px;
+	background-color:#660066; 
+    overflow: none;
+    color: white;
+    font-family: sans-serif;
+}
+.footer nav ul{
+	float: right;
+	display: flex;
+	list-style: none;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+.footer nav ul a:hover{
+background: #E6AE55;
+color: #090101;
+}
+.footer nav ul a{
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-decoration: none;
+
+}
+
+
+.emblem a:first-of-type{
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.emblem a:not(:first-child){
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+}
+
+.content-area {
+    position: relative;
+    top: 250px;
+    left: 10%;
+    width: 80%;
+    height: 1000px;
+    margin-bottom: 300px;
+    background-color: white;
+    border-radius: 20px;
+    border-color: #8699D6;
+    border-style: solid;
+    border-width: thick;
+
+}
+.command-buttons{
+    position: relative;
+    top: 370px;
+    color: black;
+
+}
+.command-buttons .fas{
+ color: black; 
+ font-size: 30px;
+}
+.command-buttons a .fas:hover{
+ color: greenyellow;
+}
+
+.page-text{
+    font-family: Oxygen, 'Segoe UI', sans-serif;
+    margin-top: -196px;
+}
+
+.page-text a {
+    text-decoration: none;
+    color: black;
+}
+
+.page-text #timer{
+text-align: right;
+margin-top: -50px;
+}
+
+.page-text h1{
+    color: #C03333;
+    text-align: center;
+}
+
+.questions{
+    padding-top: 1px;
+    padding-left: 15px;
+}
+.questions {
+    font-family: georgia;
+}
+
+.questions a .far{
+    padding-left: 30px;
+
+}
+
+.questions a .far:active{
+    color: red;
+}
+.question-tracker p{
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 200px;
+    margin-left: 70%;
+}
+

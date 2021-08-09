@@ -1,0 +1,31 @@
+<!-- this piece of html code is for the reset page of the website -->
+<link rel="icon" type="image/ico" href="{{ url_for('static', filename='images/alpha preps-1.png') }}">
+{% if current_user.is_authenticated %}
+	{% extends "prototype.html" %}
+{% else %}
+		{% extends "index_layout.html" %}
+{% endif %}
+
+{% block body %}
+
+
+
+	<center>
+		<form method="POST" action="">
+			{{ form.hidden_tag() }} 
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4"> Reset Password </legend>
+				<div class="form-group">
+					{{ form.email.label(class="form-control-label") }}
+					{{ form.email(class="form-control-lg") }}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	
+	</center>
+{% endblock body %}
+
+

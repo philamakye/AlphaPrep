@@ -1,0 +1,55 @@
+
+
+
+#page-container{
+	position: absolute;
+	min-height: 100vh;
+}
+
+.content-wrap{
+	padding-bottom: 2.5rem;
+	background-size: cover;
+}
+.footer{
+	position: fixed;
+	bottom: 0; left: 0; right: 0;
+	width:100%;
+	height: 60px;
+	background-color:#660066; 
+    overflow: none;
+    color: white;
+    font-family: sans-serif;
+}
+.footer nav ul{
+	float: right;
+	display: flex;
+	list-style: none;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+.footer nav ul a:hover{
+background: #E6AE55;
+color: #090101;
+}
+.footer nav ul a{
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-decoration: none;
+
+}
+
+
+.emblem a:first-of-type{
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.emblem a:not(:first-child){
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+}
+
